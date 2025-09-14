@@ -1070,16 +1070,16 @@
                     const data = await response.json();
                     const grokReply = data.choices[0].message.content || "Üzgünüm, cevap oluşturamadım.";
                     addMessage(grokReply, 'ai');
-                } else {
-                    const errorData = await response.json().catch(() => ({}));
-                    console.error('API Error:', response.status, errorData);
-                    addMessage(`❌ API Hatası (${response.status}): ${errorData.error?.message || 'Bilinmeyen hata'}. API anahtarınızı ve kotanızı kontrol edin.`, 'ai');
-                }
-            } catch (error) {
-                removeTypingIndicator(typingIndicator);
-                console.error('Network Error:', error);
-                addMessage("🌐 Bağlantı hatası: İnternet bağlantınızı kontrol edin veya daha sonra tekrar deneyin.", 'ai');
-            }
+        } else {
+    const errorData = await response.json().catch(() => ({}));
+    console.error('API Error:', response.status, errorData);
+
+    if (response.status === 429) {
+        addMessage("⚠️ Çok fazla mesaj attınız. Lütfen 1-2 dakika sonra tekrar deneyin.", 'ai');
+    } else {
+        addMessage(`❌ API Hatası (${response.status}): ${errorData.error?.message || 'Bilinmeyen hata'}.`, 'ai');
+    }
+}
 
             chatSendButton.disabled = false;
         }
@@ -1243,5 +1243,6 @@
 </body>
 
 </html>
+
 
 
