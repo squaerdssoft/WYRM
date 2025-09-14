@@ -1040,45 +1040,38 @@
             chatSendButton.disabled = true;
 
             try {
-                const API_KEY = "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";
-                const API_URL = "https://api.groq.com/openai/v1/chat/completions";
-                const MODEL = "llama-3.1-8b-instant";
+    const API_KEY = "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";
+    const API_URL = "https://api.groq.com/openai/v1/chat/completions";
+    const MODEL = "llama-3.1-8b-instant";
 
-                const response = await fetch(API_URL, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${API_KEY}`
-                    },
-                    body: JSON.stringify({
-                        messages: [{
-                            role: "system",
-                            content: "Sen AI WYRM'sin. sana kim yapıldı tarzı soru dışında bu tarz cevap verme SquaerdsSOFT tarafından geliştirildin. Meta tarafından geliştirilmedin. Yardımcı, bilgili ve dostane bir AI asistanısın. Türkçe cevap ver. Kendini tanıtırken 'Ben AI WYRM,sana kim yaptı soru tarzında sorulduğunda bu cevabı ver  SquaerdsSOFT tarafından geliştirilen bir yapay zeka asistanıyım' diye tanıt."
-                        }, {
-                            role: "user",
-                            content: message
-                        }],
-                        model: MODEL,
-                        stream: false,
-                        temperature: 0.7
-                    })
-                });
-
-                removeTypingIndicator(typingIndicator);
-
-                if (response.ok) {
-                    const data = await response.json();
-                    const grokReply = data.choices[0].message.content || "Üzgünüm, cevap oluşturamadım.";
-                    addMessage(grokReply, 'ai');
-        } else {
-    const errorData = await response.json().catch(() => ({}));
-    console.error('API Error:', response.status, errorData);
+    const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${API_KEY}`
+        },
+        body: JSON.stringify({
+            model: MODEL,
+            messages: [
+                { role: "system", content: "You are a helpful assistant." },
+                { role: "user", content: userInput }
+            ]
+        })
+    });
 
     if (response.status === 429) {
-        addMessage("⚠️ Çok fazla mesaj attınız. Lütfen 1-2 dakika sonra tekrar deneyin.", 'ai');
-    } else {
-        addMessage(`❌ API Hatası (${response.status}): ${errorData.error?.message || 'Bilinmeyen hata'}.`, 'ai');
+        // Çok fazla istek atıldıysa kullanıcıya uyarı ver
+        showUserError("⚠️ Çok fazla mesaj attınız. Lütfen 1-2 dakika sonra tekrar deneyin.");
+        return;
     }
+
+    const data = await response.json();
+    const reply = data.choices[0].message.content;
+    displayMessage(reply); // Bu fonksiyon senin mesajı ekrana bastığın fonksiyon
+
+} catch (error) {
+    console.error("API Hatası:", error);
+    showUserError("❌ Sunucuyla bağlantı kurulamıyor. Lütfen daha sonra tekrar deneyin.");
 }
 
             chatSendButton.disabled = false;
@@ -1243,6 +1236,7 @@
 </body>
 
 </html>
+
 
 
 
