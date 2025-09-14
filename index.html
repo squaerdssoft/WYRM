@@ -1043,7 +1043,7 @@
 const chatSendButton = document.getElementById('chat-send-button');
 const chatBox = document.getElementById('chat-box');
 
-// Kullanıcının mesajını göster
+// Display user message
 function addMessage(message, sender = 'user') {
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${sender}`;
@@ -1052,32 +1052,38 @@ function addMessage(message, sender = 'user') {
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Hata mesajı göster
+// Show error message
 function showUserError(msg) {
-    addMessage(msg, 'ai');  // Veya özel hata stilleri de eklenebilir
+    addMessage(msg, 'ai');
 }
 
-// AI'den gelen cevabı göster
+// Display AI response
 function displayMessage(message) {
     addMessage(message, 'ai');
 }
 
-// Ana işlev: Mesajı Groq API'ye gönder
+// Main function: Send message to Groq API
 async function sendToAI(userInput) {
     const API_KEY = "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";
     const API_URL = "https://api.groq.com/openai/v1/chat/completions";
     const MODEL = "llama-3.1-8b-instant";
 
-    chatSendButton.disabled = true;
+    // Disable send button
+    if (typeof chatSendButton !== 'undefined' && chatSendButton) {
+        chatSendButton.disabled = true;
+    }
 
-    // "Düşünüyor..." mesajını ekle ve referansını tut
+    // Add "Thinking..." message
     const thinkingMsg = document.createElement('div');
-    thinkingMsg.textContent = "🧠 Düşünüyor...";
+    thinkingMsg.textContent = "🧠 Thinking...";
     thinkingMsg.className = 'message ai';
     thinkingMsg.style.fontStyle = 'italic';
     thinkingMsg.style.color = '#666';
-    chatBox.appendChild(thinkingMsg);
-    chatBox.scrollTop = chatBox.scrollHeight;
+    
+    if (typeof chatBox !== 'undefined' && chatBox) {
+        chatBox.appendChild(thinkingMsg);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
 
     try {
         const response = await fetch(API_URL, {
@@ -1089,86 +1095,120 @@ async function sendToAI(userInput) {
             body: JSON.stringify({
                 model: MODEL,
                 messages: [
-                    { role: "system", content: "Sen AI WYRM'sin. Türkçe yardımcı ve bilgili bir asistansın." },
+                    { role: "system", content: "You are AI WYRM. You are a helpful and knowledgeable assistant." },
                     { role: "user", content: userInput }
                 ],
                 temperature: 0.7,
+                max_tokens: 1000,
                 stream: false
             })
         });
 
-        if (response.status === 429) {
+        // Remove thinking message
+        if (thinkingMsg && thinkingMsg.parentNode) {
             thinkingMsg.remove();
-            addMessage("⚠️ Çok fazla mesaj attınız. Lütfen 1-2 dakika sonra tekrar deneyin.", 'ai');
-            chatSendButton.disabled = false;
+        }
+
+        if (response.status === 429) {
+            addMessage("⚠️ Too many requests. Please try again in 1-2 minutes.", 'ai');
             return;
         }
 
         if (!response.ok) {
             const errorData = await response.json().catch(() => ({}));
-            thinkingMsg.remove();
-            addMessage(`❌ API Hatası (${response.status}): ${errorData.error?.message || "Bilinmeyen hata."}`, 'ai');
-            chatSendButton.disabled = false;
+            addMessage(`❌ API Error (${response.status}): ${errorData.error?.message || "Unknown error"}`, 'ai');
             return;
         }
 
         const data = await response.json();
         const reply = data.choices?.[0]?.message?.content;
 
-        thinkingMsg.remove();
-
         if (!reply) {
-            addMessage("⚠️ AI cevabı boş geldi.", 'ai');
+            addMessage("⚠️ AI response was empty.", 'ai');
         } else {
             addMessage(reply, 'ai');
         }
 
     } catch (error) {
-        thinkingMsg.remove();
-        addMessage("❌ Bağlantı hatası: Lütfen internet bağlantınızı kontrol edin.", 'ai');
-        console.error(error);
+        // Remove thinking message on error
+        if (thinkingMsg && thinkingMsg.parentNode) {
+            thinkingMsg.remove();
+        }
+        
+        addMessage("❌ Connection error: Please check your internet connection.", 'ai');
+    } finally {
+        // Always re-enable button
+        if (typeof chatSendButton !== 'undefined' && chatSendButton) {
+            chatSendButton.disabled = false;
+        }
     }
-
-    chatSendButton.disabled = false;
 }
 
-// Mesaj gönderme olayı
+// Send chat message function
 function sendChatMessage() {
+    if (typeof chatInput === 'undefined' || !chatInput) {
+        console.error('chatInput element not found');
+        return;
+    }
+    
     const message = chatInput.value.trim();
     if (!message) return;
 
     addMessage(message, 'user');
     sendToAI(message);
     chatInput.value = '';
+    
+    // Reset textarea height if autoResize is being used
+    if (chatInput.style) {
+        chatInput.style.height = 'auto';
+    }
 }
 
-// Enter ile veya butonla gönderme
-chatInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        sendChatMessage();
-    }
-});
-chatSendButton.addEventListener('click', sendChatMessage);
+// Auto-resize textarea function
+function autoResize(textarea) {
+    if (!textarea) return;
+    textarea.style.height = 'auto';
+    textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
+}
 
-        function sendChatMessage() {
-            const message = chatInput.value.trim();
-            if (!message) return;
-
-            addMessage(message, 'user');
-            sendToAI(message);
-            chatInput.value = '';
-        }
-
-        // Auto-resize textarea
-        function autoResize(textarea) {
-            textarea.style.height = 'auto';
-            textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
-        }
-
+// Initialize event listeners when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if elements exist before adding listeners
+    if (typeof chatInput !== 'undefined' && chatInput) {
         chatInput.addEventListener('input', function() {
             autoResize(this);
         });
+
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendChatMessage();
+            }
+        });
+    }
+
+    if (typeof chatSendButton !== 'undefined' && chatSendButton) {
+        chatSendButton.addEventListener('click', sendChatMessage);
+    }
+});
+
+// Fallback: Add listeners immediately if elements already exist
+if (typeof chatInput !== 'undefined' && chatInput) {
+    chatInput.addEventListener('input', function() {
+        autoResize(this);
+    });
+
+    chatInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendChatMessage();
+        }
+    });
+}
+
+if (typeof chatSendButton !== 'undefined' && chatSendButton) {
+    chatSendButton.addEventListener('click', sendChatMessage);
+}
 
         xaiInput.addEventListener('input', function() {
             autoResize(this);
@@ -1300,6 +1340,7 @@ chatSendButton.addEventListener('click', sendChatMessage);
 </body>
 
 </html>
+
 
 
 
