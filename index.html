@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="wmrIAMKfoubCubfGjXQcbiZoRoYdXfvT9bDWRc1kvRs" />
-    <link rel="icon" type="image/png" href="Ekran görüntüsü 2025-08-29 142829.png">
+    <link rel="icon" type="image/png" href="Ekran görüntüsü 2025-08-29 142829.png
+">
     <title>AI WYRM - Advanced AI Assistant</title>
     <style>
         * {
@@ -867,31 +868,37 @@
     <div class="api-modal" id="apiModal">
         <div class="api-content">
             <button class="api-close" onclick="closeAPIModal()">&times;</button>
-            <h2 class="api-title">AI WYRM API Documentation</h2>
+            <h2 class="api-title">AI WYRM - Yapay Zeka API</h2>
 
             <div class="api-section">
-                <h3>Endpoint</h3>
-                <p class="api-description">AI WYRM API, platformu üzerinden wyrm_1 modelini kullanır.</p>
-                <div class="api-code">https://wyrm.com/console/v1/chat/completions</div>
+                <h3>AI API Endpoint</h3>
+                <p class="api-description">AI WYRM, gelişmiş yapay zeka teknolojisi ile güçlendirilmiş API hizmeti sunar.</p>
+                <div class="api-code">https://api.groq.com/openai/v1/chat/completions</div>
             </div>
 
             <div class="api-section">
-                <h3>Örnek Kullanım</h3>
-                <p class="api-description">Aşağıdaki cURL komutu ile API'yi test edebilirsiniz:</p>
-                <div class="api-code">curl https://wyrm.com/console/v1/chat/completions -s \ -H "Content-Type: application/json" \ -H "Authorization: Bearer api gizli partnerlik alın" \ -d '{ "model": "WYRM/gdb3.1/wyrm.1",
-                    "messages": [{ "role": "user", "content": "Explain the importance of fast language models" }] }'
+                <h3>Yapay Zeka API Kullanımı</h3>
+                <p class="api-description">AI WYRM API'sini kullanarak yapay zeka destekli uygulamalar geliştirebilirsiniz:</p>
+                <div class="api-code">curl https://api.wyrm.com/console/v1/chat/completions -s \ -H "Content-Type: application/json" \ -H "Authorization: Bearer /(partnerlik satın alın)" \ -d '{ "model": "squaerdssofta/wyrm-1-scout-19b-5e-instruct", "messages": [{ "role":
+                    "user", "content": "Explain the importance of fast language models" }] }'
                 </div>
             </div>
 
             <div class="api-section">
-                <h3>Model Bilgileri</h3>
-                <p class="api-description">• Model: wyrm.1 <br> • Hızlı yanıt süresi<br> • Türkçe dil desteği<br> • SquaerdsSOFT tarafından özelleştirilmiş</p>
+                <h3>AI Model Özellikleri</h3>
+                <p class="api-description">• Gelişmiş Dil Modeli: squaerdssofta/wyrm-1-scout-19b-5e-instruct<br> • Hızlı AI Yanıt Süresi<br> • Türkçe Yapay Zeka Desteği<br> • SquaerdsSOFT AI Teknolojisi<br> • Akıllı Sohbet Sistemi<br> • Doğal Dil İşleme</p>
             </div>
 
             <div class="api-section">
-                <h3>Parametreler</h3>
-                <div class="api-code">{ "model": "wyrm.b543nfr.54fb_1vrs", "messages": [ { "role": "system", "content": "Sen AI WYRM'sin..." }, { "role": "user", "content": "Kullanıcı mesajı" } ], "temperature": 0.7, "stream": false }
+                <h3>AI API Parametreleri</h3>
+                <div class="api-code">{ "model": "squaerdssofta/wyrm-1-scout-19b-5e-instruct", "messages": [ { "role": "system", "content": "Sen AI WYRM yapay zeka asistanısın..." }, { "role": "user", "content": "Yapay zeka ile ilgili soru" } ], "temperature": 0.7, "stream":
+                    false }
                 </div>
+            </div>
+
+            <div class="api-section">
+                <h3>AI Kullanım Alanları</h3>
+                <p class="api-description">• kodlama ve aı destek<br> • Doğal Dil İşleme Uygulamaları<br> • İçerik Üretimi ve Analizi<br> • Eğitim ve Öğrenme Sistemleri<br> • Müşteri Hizmetleri Otomasyonu</p>
             </div>
         </div>
     </div>
@@ -1039,121 +1046,79 @@
             const typingIndicator = showTypingIndicator();
             chatSendButton.disabled = true;
 
-   const chatInput = document.getElementById('chat-input');
-const chatSendButton = document.getElementById('chat-send-button');
-const chatBox = document.getElementById('chat-box');
+            try {
+                const API_KEY = "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";
+                const API_URL = "https://api.groq.com/openai/v1/chat/completions";
+                const MODEL = "llama-3.1-8b-instant";
 
-// Display user message
-function addMessage(message, sender = 'user') {
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `message ${sender}`;
-    messageDiv.innerText = message;
-    chatBox.appendChild(messageDiv);
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
+                const response = await fetch(API_URL, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${API_KEY}`
+                    },
+                    body: JSON.stringify({
+                        messages: [{
+                            "role": "system",
+                            "content": "Sen AI WYRM'sin. 'Sana kim yaptı?', 'Seni kim geliştirdi?' gibi sorular dışında kendini tanıtma. Bu tarz sorular sorulduğunda şu şekilde cevap ver: 'Ben AI WYRM, SquaerdsSOFT tarafından geliştirilen bir yapay zeka asistanıyım.' Meta tarafından geliştirilmedin. Yardımcı, bilgili ve dostane bir yapay zeka asistanısın. Cevaplarını Türkçe ver."
+                        }, {
+                            role: "user",
+                            content: message
+                        }],
+                        model: MODEL,
+                        stream: false,
+                        temperature: 0.7
+                    })
+                });
 
-// Show error message
-function showUserError(msg) {
-    addMessage(msg, 'ai');
-}
+                removeTypingIndicator(typingIndicator);
 
-// Display AI response
-function displayMessage(message) {
-    addMessage(message, 'ai');
-}
+                if (response.ok) {
+                    const data = await response.json();
+                    const grokReply = data.choices[0].message.content || "Üzgünüm, cevap oluşturamadım.";
+                    addMessage(grokReply, 'ai');
+                } else {
+                    const errorData = await response.json().catch(() => ({}));
+                    console.error('API Error:', response.status, errorData);
+                    addMessage(`❌ API Hatası (${response.status}): ${errorData.error?.message || 'Bilinmeyen hata'}. API anahtarınızı ve kotanızı kontrol edin.`, 'ai');
+                }
+            } catch (error) {
+                removeTypingIndicator(typingIndicator);
+                console.error('Network Error:', error);
+                addMessage("🌐 Bağlantı hatası: İnternet bağlantınızı kontrol edin veya daha sonra tekrar deneyin.", 'ai');
+            }
 
-// Main function: Send message to Groq API
-async function sendToAI(userInput) {
-    const API_KEY = "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";
-    const API_URL = "https://api.groq.com/openai/v1/chat/completions";
-    const MODEL = "llama-3.1-8b-instant";
+            chatSendButton.disabled = false;
+        }
 
-    // Disable send button
-    if (typeof chatSendButton !== 'undefined' && chatSendButton) {
-        chatSendButton.disabled = true;
-    }
-
-    // Add "Thinking..." message
-    const thinkingMsg = document.createElement('div');
-    thinkingMsg.textContent = "🧠 Thinking...";
-    thinkingMsg.className = 'message ai';
-    thinkingMsg.style.fontStyle = 'italic';
-    thinkingMsg.style.color = '#666';
-    
-    if (typeof chatBox !== 'undefined' && chatBox) {
-        chatBox.appendChild(thinkingMsg);
-        chatBox.scrollTop = chatBox.scrollHeight;
-    }
-
-    try { const API_KEY = "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"; const API_URL = "https://api.groq.com/openai/v1/chat/completions"; const MODEL = "llama-3.1-8b-instant"; const response = await fetch(API_URL, { method: "POST", headers: { "Content-Type": "application/json", "Authorization": Bearer ${API_KEY} }, body: JSON.stringify({ messages: [{ role: "system", content: "Sen AI WYRM'sin. sana kim yapıldı tarzı soru dışında bu tarz cevap verme SquaerdsSOFT tarafından geliştirildin. Meta tarafından geliştirilmedin. Yardımcı, bilgili ve dostane bir AI asistanısın. Türkçe cevap ver. Kendini tanıtırken 'Ben AI WYRM,sana kim yaptı soru tarzında sorulduğunda bu cevabı ver SquaerdsSOFT tarafından geliştirilen bir yapay zeka asistanıyım' diye tanıt." }, { role: "user", content: message }], model: MODEL, stream: false, temperature: 0.7 }) }); removeTypingIndicator(typingIndicator); if (response.ok) { const data = await response.json(); const grokReply = data.choices[0].message.content || "Üzgünüm, cevap oluşturamadım."; addMessage(grokReply, 'ai'); } else { const errorData = await response.json().catch(() => ({})); console.error('API Error:', response.status, errorData); addMessage(❌ API Hatası (${response.status}): ${errorData.error?.message || 'Bilinmeyen hata'}. API anahtarınızı ve kotanızı kontrol edin., 'ai'); } } catch (error) { removeTypingIndicator(typingIndicator); console.error('Network Error:', error); addMessage("🌐 Bağlantı hatası: İnternet bağlantınızı kontrol edin veya daha sonra tekrar deneyin.", 'ai'); } chatSendButton.disabled = false; }
-    }
-}
-
-// Send chat message function
-function sendChatMessage() {
-    if (typeof chatInput === 'undefined' || !chatInput) {
-        console.error('chatInput element not found');
-        return;
-    }
-    
-    const message = chatInput.value.trim();
-    if (!message) return;
-
-    addMessage(message, 'user');
-    sendToAI(message);
-    chatInput.value = '';
-    
-    // Reset textarea height if autoResize is being used
-    if (chatInput.style) {
-        chatInput.style.height = 'auto';
-    }
-}
-
-// Auto-resize textarea function
-function autoResize(textarea) {
-    if (!textarea) return;
-    textarea.style.height = 'auto';
-    textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
-}
-
-// Initialize event listeners when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-    // Check if elements exist before adding listeners
-    if (typeof chatInput !== 'undefined' && chatInput) {
-        chatInput.addEventListener('input', function() {
-            autoResize(this);
-        });
-
+        // Chat input functionality
         chatInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
                 sendChatMessage();
             }
         });
-    }
 
-    if (typeof chatSendButton !== 'undefined' && chatSendButton) {
         chatSendButton.addEventListener('click', sendChatMessage);
-    }
-});
 
-// Fallback: Add listeners immediately if elements already exist
-if (typeof chatInput !== 'undefined' && chatInput) {
-    chatInput.addEventListener('input', function() {
-        autoResize(this);
-    });
+        function sendChatMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
 
-    chatInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter' && !e.shiftKey) {
-            e.preventDefault();
-            sendChatMessage();
+            addMessage(message, 'user');
+            sendToAI(message);
+            chatInput.value = '';
         }
-    });
-}
 
-if (typeof chatSendButton !== 'undefined' && chatSendButton) {
-    chatSendButton.addEventListener('click', sendChatMessage);
-}
+        // Auto-resize textarea
+        function autoResize(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
+        }
+
+        chatInput.addEventListener('input', function() {
+            autoResize(this);
+        });
 
         xaiInput.addEventListener('input', function() {
             autoResize(this);
@@ -1256,7 +1221,7 @@ if (typeof chatSendButton !== 'undefined' && chatSendButton) {
                 var b = a.contentDocument || a.contentWindow.document;
                 if (b) {
                     var d = b.createElement('script');
-                    d.innerHTML = "window.__CF$cv$params={r:'97ea2ea4c29c78a6',t:'MTc1Nzc5MzExNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+                    d.innerHTML = "window.__CF$cv$params={r:'97f02c18110658dd',t:'MTc1Nzg1NTkyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
                     b.getElementsByTagName('head')[0].appendChild(d)
                 }
             }
@@ -1285,12 +1250,3 @@ if (typeof chatSendButton !== 'undefined' && chatSendButton) {
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
