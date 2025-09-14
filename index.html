@@ -1085,62 +1085,7 @@ async function sendToAI(userInput) {
         chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    try {
-        const response = await fetch(API_URL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${API_KEY}`
-            },
-            body: JSON.stringify({
-                model: MODEL,
-                messages: [
-                    { role: "system", content: "You are AI WYRM. You are a helpful and knowledgeable assistant." },
-                    { role: "user", content: userInput }
-                ],
-                temperature: 0.7,
-                max_tokens: 1000,
-                stream: false
-            })
-        });
-
-        // Remove thinking message
-        if (thinkingMsg && thinkingMsg.parentNode) {
-            thinkingMsg.remove();
-        }
-
-        if (response.status === 429) {
-            addMessage("⚠️ Too many requests. Please try again in 1-2 minutes.", 'ai');
-            return;
-        }
-
-        if (!response.ok) {
-            const errorData = await response.json().catch(() => ({}));
-            addMessage(`❌ API Error (${response.status}): ${errorData.error?.message || "Unknown error"}`, 'ai');
-            return;
-        }
-
-        const data = await response.json();
-        const reply = data.choices?.[0]?.message?.content;
-
-        if (!reply) {
-            addMessage("⚠️ AI response was empty.", 'ai');
-        } else {
-            addMessage(reply, 'ai');
-        }
-
-    } catch (error) {
-        // Remove thinking message on error
-        if (thinkingMsg && thinkingMsg.parentNode) {
-            thinkingMsg.remove();
-        }
-        
-        addMessage("❌ Connection error: Please check your internet connection.", 'ai');
-    } finally {
-        // Always re-enable button
-        if (typeof chatSendButton !== 'undefined' && chatSendButton) {
-            chatSendButton.disabled = false;
-        }
+    try { const API_KEY = "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"; const API_URL = "https://api.groq.com/openai/v1/chat/completions"; const MODEL = "llama-3.1-8b-instant"; const response = await fetch(API_URL, { method: "POST", headers: { "Content-Type": "application/json", "Authorization": Bearer ${API_KEY} }, body: JSON.stringify({ messages: [{ role: "system", content: "Sen AI WYRM'sin. sana kim yapıldı tarzı soru dışında bu tarz cevap verme SquaerdsSOFT tarafından geliştirildin. Meta tarafından geliştirilmedin. Yardımcı, bilgili ve dostane bir AI asistanısın. Türkçe cevap ver. Kendini tanıtırken 'Ben AI WYRM,sana kim yaptı soru tarzında sorulduğunda bu cevabı ver SquaerdsSOFT tarafından geliştirilen bir yapay zeka asistanıyım' diye tanıt." }, { role: "user", content: message }], model: MODEL, stream: false, temperature: 0.7 }) }); removeTypingIndicator(typingIndicator); if (response.ok) { const data = await response.json(); const grokReply = data.choices[0].message.content || "Üzgünüm, cevap oluşturamadım."; addMessage(grokReply, 'ai'); } else { const errorData = await response.json().catch(() => ({})); console.error('API Error:', response.status, errorData); addMessage(❌ API Hatası (${response.status}): ${errorData.error?.message || 'Bilinmeyen hata'}. API anahtarınızı ve kotanızı kontrol edin., 'ai'); } } catch (error) { removeTypingIndicator(typingIndicator); console.error('Network Error:', error); addMessage("🌐 Bağlantı hatası: İnternet bağlantınızı kontrol edin veya daha sonra tekrar deneyin.", 'ai'); } chatSendButton.disabled = false; }
     }
 }
 
@@ -1340,6 +1285,7 @@ if (typeof chatSendButton !== 'undefined' && chatSendButton) {
 </body>
 
 </html>
+
 
 
 
