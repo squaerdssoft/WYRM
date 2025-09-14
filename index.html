@@ -1039,53 +1039,109 @@
             const typingIndicator = showTypingIndicator();
             chatSendButton.disabled = true;
 
-            try {
+   const chatInput = document.getElementById('chat-input');
+const chatSendButton = document.getElementById('chat-send-button');
+const chatBox = document.getElementById('chat-box');
+
+// Kullanıcının mesajını göster
+function addMessage(message, sender = 'user') {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${sender}`;
+    messageDiv.innerText = message;
+    chatBox.appendChild(messageDiv);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Hata mesajı göster
+function showUserError(msg) {
+    addMessage(msg, 'ai');  // Veya özel hata stilleri de eklenebilir
+}
+
+// AI'den gelen cevabı göster
+function displayMessage(message) {
+    addMessage(message, 'ai');
+}
+
+// Ana işlev: Mesajı Groq API'ye gönder
+async function sendToAI(userInput) {
     const API_KEY = "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";
     const API_URL = "https://api.groq.com/openai/v1/chat/completions";
     const MODEL = "llama-3.1-8b-instant";
 
-    const response = await fetch(API_URL, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${API_KEY}`
-        },
-        body: JSON.stringify({
-            model: MODEL,
-            messages: [
-                { role: "system", content: "You are a helpful assistant." },
-                { role: "user", content: userInput }
-            ]
-        })
-    });
+    chatSendButton.disabled = true;
+    addMessage("🧠 Düşünüyor...", 'ai');  // Yazma göstergesi gibi
 
-    if (response.status === 429) {
-        // Çok fazla istek atıldıysa kullanıcıya uyarı ver
-        showUserError("⚠️ Çok fazla mesaj attınız. Lütfen 1-2 dakika sonra tekrar deneyin.");
-        return;
-    }
-
-    const data = await response.json();
-    const reply = data.choices[0].message.content;
-    displayMessage(reply); // Bu fonksiyon senin mesajı ekrana bastığın fonksiyon
-
-} catch (error) {
-    console.error("API Hatası:", error);
-    showUserError("❌ Sunucuyla bağlantı kurulamıyor. Lütfen daha sonra tekrar deneyin.");
-}
-
-            chatSendButton.disabled = false;
-        }
-
-        // Chat input functionality
-        chatInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                sendChatMessage();
-            }
+    try {
+        const response = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${API_KEY}`
+            },
+            body: JSON.stringify({
+                model: MODEL,
+                messages: [
+                    { role: "system", content: "Sen AI WYRM'sin. Türkçe konuş. Yardımcı, bilgili ve dostane bir yapay zeka asistanısın. Meta tarafından yapılmadın, SquaerdsSOFT tarafından geliştirildin." },
+                    { role: "user", content: userInput }
+                ],
+                temperature: 0.7,
+                stream: false
+            })
         });
 
-        chatSendButton.addEventListener('click', sendChatMessage);
+        if (response.status === 429) {
+            showUserError("⚠️ Çok fazla mesaj attınız. Lütfen 1-2 dakika sonra tekrar deneyin.");
+            return;
+        }
+
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}));
+            console.error("API Hatası:", response.status, errorData);
+            showUserError(`❌ API Hatası (${response.status}): ${errorData.error?.message || 'Bilinmeyen hata.'}`);
+            return;
+        }
+
+        const data = await response.json();
+        const reply = data.choices?.[0]?.message?.content;
+
+        if (!reply) {
+            showUserError("⚠️ AI cevabı boş geldi.");
+        } else {
+            // "🧠 Düşünüyor..." mesajını sil, yerine gerçek mesajı yaz
+            const lastAiMessage = chatBox.querySelector('.message.ai:last-child');
+            if (lastAiMessage?.innerText === "🧠 Düşünüyor...") {
+                lastAiMessage.remove();
+            }
+
+            displayMessage(reply);
+        }
+
+    } catch (error) {
+        console.error("Ağ hatası:", error);
+        showUserError("❌ Bağlantı hatası: Lütfen internet bağlantınızı kontrol edin.");
+    } finally {
+        chatSendButton.disabled = false;
+    }
+}
+
+// Mesaj gönderme olayı
+function sendChatMessage() {
+    const message = chatInput.value.trim();
+    if (!message) return;
+
+    addMessage(message, 'user');
+    sendToAI(message);
+    chatInput.value = '';
+}
+
+// Enter ile veya butonla gönderme
+chatInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendChatMessage();
+    }
+});
+chatSendButton.addEventListener('click', sendChatMessage);
 
         function sendChatMessage() {
             const message = chatInput.value.trim();
@@ -1236,6 +1292,7 @@
 </body>
 
 </html>
+
 
 
 
