@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="wmrIAMKfoubCubfGjXQcbiZoRoYdXfvT9bDWRc1kvRs" />
-    <link rel="icon" type="image/png" href="Ekran görüntüsü 2025-08-29 142829.png
-">
+    <link rel="icon" type="image/png" href="Ekran görüntüsü 2025-08-29 142829.png">
     <title>AI WYRM - Advanced AI Assistant</title>
     <style>
         * {
@@ -14,13 +12,13 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             margin: 0;
             height: 100vh;
             background-image: url('squaerds.jpg.png');
-            background-size: cover;
-            background-position: center;
+            background-size: cover;      
+            background-position: center; 
             background-repeat: no-repeat;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: white;
@@ -29,8 +27,8 @@
             min-height: 100vh;
             overflow-x: hidden;
         }
+
         /* Loading Screen */
-        
         .loading {
             position: fixed;
             top: 0;
@@ -44,7 +42,7 @@
             z-index: 1000;
             animation: fadeOut 0.5s ease-out 2.5s forwards;
         }
-        
+
         .loading-spinner {
             width: 50px;
             height: 50px;
@@ -53,24 +51,20 @@
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
-        
+
         @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
-        
+
         @keyframes fadeOut {
             to {
                 opacity: 0;
                 visibility: hidden;
             }
         }
+
         /* Top Bar */
-        
         .top-bar {
             position: fixed;
             top: 0;
@@ -86,34 +80,34 @@
             justify-content: space-between;
             padding: 0 30px;
         }
-        
+
         .nav-left {
             display: flex;
             align-items: center;
             gap: 40px;
         }
+
         /* Logo style */
-        
         .logo {
             font-size: 1.5rem;
             font-weight: 800;
             color: white;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
             cursor: pointer;
             transition: all 0.3s ease;
             margin-left: 80px;
         }
-        
+
         .logo:hover {
             opacity: 0.8;
         }
+
         /* Menu */
-        
         .nav-menu {
             display: flex;
             gap: 30px;
         }
-        
+
         .nav-item {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
@@ -122,12 +116,12 @@
             transition: all 0.3s ease;
             cursor: pointer;
         }
-        
+
         .nav-item:hover {
             color: white;
         }
+
         /* Try WYRM button */
-        
         .try-wyrm {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -139,18 +133,18 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .try-wyrm:hover {
             background: rgba(255, 255, 255, 0.2);
             border-color: rgba(255, 255, 255, 0.3);
         }
+
         /* Scrollable Sections */
-        
         .main-content {
             position: relative;
             z-index: 1;
         }
-        
+
         .section {
             min-height: 100vh;
             display: flex;
@@ -159,34 +153,34 @@
             padding: 80px 40px 40px 40px;
             position: relative;
         }
-        
+
         .section-content {
             max-width: 1200px;
             width: 100%;
             text-align: center;
             color: white;
         }
+
         /* Hero Section */
-        
         .hero-section {
             background: transparent;
         }
-        
+
         .hero-title {
             font-size: 4rem;
             font-weight: 800;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.3);
             line-height: 1.1;
         }
-        
+
         .hero-subtitle {
             font-size: 1.5rem;
             font-weight: 300;
             margin-bottom: 40px;
             opacity: 0.9;
         }
-        
+
         .hero-description {
             font-size: 1.1rem;
             margin-bottom: 50px;
@@ -195,19 +189,19 @@
             margin-left: auto;
             margin-right: auto;
         }
+
         /* Features Section */
-        
         .features-section {
             background: transparent;
         }
-        
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
             margin-top: 60px;
         }
-        
+
         .feature-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
@@ -216,35 +210,35 @@
             padding: 40px 30px;
             transition: all 0.3s ease;
         }
-        
+
         .feature-card:hover {
             transform: translateY(-10px);
             background: rgba(255, 255, 255, 0.15);
             border-color: rgba(255, 255, 255, 0.3);
         }
-        
+
         .feature-icon {
             font-size: 3rem;
             margin-bottom: 20px;
         }
-        
+
         .feature-title {
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 15px;
         }
-        
+
         .feature-description {
             font-size: 1rem;
             opacity: 0.8;
             line-height: 1.6;
         }
+
         /* About Section */
-        
         .about-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
-        
+
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -252,26 +246,26 @@
             align-items: center;
             text-align: left;
         }
-        
+
         .about-text h2 {
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 30px;
         }
-        
+
         .about-text p {
             font-size: 1.2rem;
             line-height: 1.7;
             opacity: 0.9;
             margin-bottom: 20px;
         }
-        
+
         .about-visual {
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        
+
         .about-circle {
             width: 300px;
             height: 300px;
@@ -285,18 +279,13 @@
             font-size: 4rem;
             animation: float 6s ease-in-out infinite;
         }
-        
+
         @keyframes float {
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
+
         /* Particles */
-        
         .particle {
             position: absolute;
             width: 4px;
@@ -307,8 +296,8 @@
             transition: transform 0.8s ease-out;
             z-index: 0;
         }
+
         /* xAI Style Input Box */
-        
         .xai-input-container {
             position: fixed;
             bottom: 150px;
@@ -319,17 +308,17 @@
             z-index: 10;
             transition: all 0.5s ease;
         }
-        
+
         .xai-input-container.hidden {
             opacity: 0;
             transform: translateX(-50%) translateY(50px);
             pointer-events: none;
         }
-        
+
         .xai-input-container.chat-active {
             display: none;
         }
-        
+
         .xai-input-box {
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(20px);
@@ -343,17 +332,17 @@
             transition: all 0.3s ease;
             min-height: 60px;
         }
-        
+
         .xai-input-box:hover {
             border-color: rgba(255, 255, 255, 0.25);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
         }
-        
+
         .xai-input-box:focus-within {
             border-color: #667eea;
             box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2), 0 15px 40px rgba(0, 0, 0, 0.4);
         }
-        
+
         .xai-input {
             flex: 1;
             background: transparent;
@@ -364,14 +353,18 @@
             font-weight: 400;
             resize: none;
             min-height: 40px;
+            max-height: 200px;
             line-height: 1.5;
             font-family: inherit;
+            overflow-y: auto;
+            word-wrap: break-word;
+            word-break: break-word;
         }
-        
+
         .xai-input::placeholder {
             color: rgba(255, 255, 255, 0.6);
         }
-        
+
         .xai-send-icon {
             width: 24px;
             height: 24px;
@@ -379,13 +372,13 @@
             cursor: pointer;
             transition: all 0.2s ease;
         }
-        
+
         .xai-send-icon:hover {
             color: #667eea;
             transform: scale(1.1);
         }
+
         /* Transparent Chat Area */
-        
         .fullscreen-chat {
             position: fixed;
             top: 0;
@@ -394,16 +387,22 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
-            z-index: 100;
+            z-index: 5;
             display: none;
             flex-direction: column;
+            overflow: hidden;
         }
-        
+
         .fullscreen-chat.active {
             display: flex;
         }
+
+        /* Prevent body scroll when chat is active */
+        body.chat-active {
+            overflow: hidden;
+        }
+
         /* Chat Top Bar */
-        
         .chat-top-bar {
             position: fixed;
             top: 0;
@@ -413,38 +412,38 @@
             background: transparent;
             backdrop-filter: none;
             border-bottom: none;
-            z-index: 101;
+            z-index: 6;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 30px;
         }
-        
+
         .chat-nav-left {
             display: flex;
             align-items: center;
             gap: 40px;
         }
-        
+
         .chat-logo {
             font-size: 1.5rem;
             font-weight: 800;
             color: white;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
             cursor: pointer;
             transition: all 0.3s ease;
             margin-left: 80px;
         }
-        
+
         .chat-logo:hover {
             opacity: 0.8;
         }
-        
+
         .chat-nav-menu {
             display: flex;
             gap: 30px;
         }
-        
+
         .chat-nav-item {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
@@ -453,11 +452,11 @@
             transition: all 0.3s ease;
             cursor: pointer;
         }
-        
+
         .chat-nav-item:hover {
             color: white;
         }
-        
+
         .chat-try-wyrm {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -469,22 +468,22 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .chat-try-wyrm:hover {
             background: rgba(255, 255, 255, 0.2);
             border-color: rgba(255, 255, 255, 0.3);
         }
-        
+
         .chat-messages {
             flex: 1;
             overflow-y: auto;
-            padding: 80px 30px 120px 30px;
+            padding: 80px 30px 200px 30px;
             display: flex;
             flex-direction: column;
             gap: 20px;
             position: relative;
-        }
-        
+        } 
+
         .message {
             display: flex;
             align-items: flex-start;
@@ -492,48 +491,52 @@
             max-width: 80%;
             margin-bottom: 15px;
         }
-        
+
         .message.user {
             align-self: flex-end;
             flex-direction: row-reverse;
         }
-        
+
         .message.ai {
             align-self: flex-start;
         }
-        
+
         .message-content {
             font-size: 15px;
-            line-height: 1.5;
+            line-height: 1.6;
             word-wrap: break-word;
+            word-break: break-word;
+            white-space: pre-wrap;
             background: rgba(255, 255, 255, 0.1);
-            padding: 12px 16px;
+            padding: 16px 20px;
             border-radius: 18px;
             backdrop-filter: blur(10px);
+            max-width: 100%;
+            overflow-wrap: break-word;
         }
-        
+
         .message.user .message-content {
             color: white;
             background: rgba(102, 126, 234, 0.8);
         }
-        
+
         .message.ai .message-content {
             color: white;
             background: rgba(255, 255, 255, 0.1);
         }
-        
+
         .chat-input-area {
             padding: 20px;
             border-top: none;
             display: flex;
             justify-content: center;
             position: fixed;
-            bottom: 20px;
+            bottom: 50px;
             left: 0;
             right: 0;
-            z-index: 102;
+            z-index: 7;
         }
-        
+
         .chat-input-container {
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(20px);
@@ -549,17 +552,17 @@
             width: 90%;
             max-width: 600px;
         }
-        
+
         .chat-input-container:hover {
             border-color: rgba(255, 255, 255, 0.25);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
         }
-        
+
         .chat-input-container:focus-within {
             border-color: #667eea;
             box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2), 0 15px 40px rgba(0, 0, 0, 0.4);
         }
-        
+
         .chat-input {
             flex: 1;
             background: transparent;
@@ -570,15 +573,18 @@
             font-weight: 400;
             resize: none;
             min-height: 40px;
-            max-height: 120px;
+            max-height: 200px;
             line-height: 1.5;
             font-family: inherit;
+            overflow-y: auto;
+            word-wrap: break-word;
+            word-break: break-word;
         }
-        
+
         .chat-input::placeholder {
             color: rgba(255, 255, 255, 0.6);
         }
-        
+
         .chat-send-button {
             width: 24px;
             height: 24px;
@@ -591,38 +597,38 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .chat-send-button:hover {
             color: #667eea;
             transform: scale(1.1);
         }
-        
+
         .chat-send-button:disabled {
             color: rgba(255, 255, 255, 0.3);
             cursor: not-allowed;
             transform: none;
         }
+
         /* Scrollbar styling */
-        
         .chat-messages::-webkit-scrollbar {
             width: 6px;
         }
-        
+
         .chat-messages::-webkit-scrollbar-track {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 3px;
         }
-        
+
         .chat-messages::-webkit-scrollbar-thumb {
             background: rgba(255, 255, 255, 0.3);
             border-radius: 3px;
         }
-        
+
         .chat-messages::-webkit-scrollbar-thumb:hover {
             background: rgba(255, 255, 255, 0.5);
         }
+
         /* Typing indicator */
-        
         .typing-indicator {
             display: flex;
             align-items: center;
@@ -632,7 +638,7 @@
             border-radius: 18px;
             color: rgba(255, 255, 255, 0.8);
         }
-        
+
         .typing-dot {
             width: 8px;
             height: 8px;
@@ -640,19 +646,17 @@
             background: rgba(255, 255, 255, 0.6);
             animation: typing 1.4s ease-in-out infinite;
         }
-        
+
         .typing-dot:nth-child(2) {
             animation-delay: 0.2s;
         }
-        
+
         .typing-dot:nth-child(3) {
             animation-delay: 0.4s;
         }
-        
+
         @keyframes typing {
-            0%,
-            60%,
-            100% {
+            0%, 60%, 100% {
                 transform: translateY(0);
                 opacity: 0.5;
             }
@@ -661,8 +665,8 @@
                 opacity: 1;
             }
         }
+
         /* API Modal */
-        
         .api-modal {
             position: fixed;
             top: 0;
@@ -677,11 +681,11 @@
             justify-content: center;
             padding: 20px;
         }
-        
+
         .api-modal.active {
             display: flex;
         }
-        
+
         .api-content {
             background: rgba(0, 0, 0, 0.9);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -694,7 +698,7 @@
             color: white;
             position: relative;
         }
-        
+
         .api-close {
             position: absolute;
             top: 20px;
@@ -707,29 +711,29 @@
             opacity: 0.7;
             transition: opacity 0.3s ease;
         }
-        
+
         .api-close:hover {
             opacity: 1;
         }
-        
+
         .api-title {
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 30px;
             color: #667eea;
         }
-        
+
         .api-section {
             margin-bottom: 30px;
         }
-        
+
         .api-section h3 {
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 15px;
             color: white;
         }
-        
+
         .api-code {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -742,73 +746,79 @@
             white-space: pre-wrap;
             color: #e0e0e0;
         }
-        
+
         .api-description {
             font-size: 1rem;
             line-height: 1.6;
             opacity: 0.9;
             margin-bottom: 20px;
         }
+
         /* Mobile responsiveness */
-        
         @media (max-width: 768px) {
-            .logo,
-            .chat-logo {
+            .logo, .chat-logo {
                 font-size: 1.2rem;
             }
-            .nav-menu,
-            .chat-nav-menu {
+
+            .nav-menu, .chat-nav-menu {
                 display: none;
             }
+
             .xai-input-container {
                 bottom: 110px;
                 width: 95%;
             }
-            .chat-messages,
-            .chat-input-area {
+
+            .chat-messages, .chat-input-area {
                 padding: 15px 20px;
             }
+
             .message {
                 max-width: 90%;
             }
+
             .hero-title {
                 font-size: 2.5rem;
             }
+
             .hero-subtitle {
                 font-size: 1.2rem;
             }
+
             .about-content {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
+
             .about-text h2 {
                 font-size: 2rem;
             }
+
             .features-grid {
                 grid-template-columns: 1fr;
             }
         }
-        
+
         @media (max-width: 480px) {
-            .logo,
-            .chat-logo {
+            .logo, .chat-logo {
                 font-size: 1rem;
             }
+
             .xai-input-container {
                 bottom: 90px;
                 width: 98%;
             }
-            .chat-messages,
-            .chat-input-area {
+
+            .chat-messages, .chat-input-area {
                 padding: 12px 15px;
             }
+
             .hero-title {
                 font-size: 2rem;
             }
         }
     </style>
 </head>
-
 <body>
     <!-- Loading Screen -->
     <div class="loading">
@@ -834,18 +844,37 @@
         <!-- Hero Section -->
         <section class="section hero-section">
             <div class="section-content">
-
+                
             </div>
         </section>
 
-        <!-- Features Section -->
-        <section class="section features-section">
-            <div class="section-content">
-                <!-- Görsel buraya gelecek -->
-                <img src="görsel ismi" alt="İkinci sayfa görseli" style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);" onerror="this.style.display='none';">
-            </div>
-        </section>
+<!-- Tam ekran görsel bölümü -->
+<section style="
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #000;
+">
+    <div style="width: 100%; height: 100%;">
+        <img 
+            src="WY2sayfa.png" 
+            alt="İkinci sayfa görseli" 
+            style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            " 
+            onerror="this.style.display='none';"
+        >
     </div>
+</section>
+
+
 
     <!-- Floating Particles -->
     <div class="particle"></div>
@@ -869,36 +898,64 @@
         <div class="api-content">
             <button class="api-close" onclick="closeAPIModal()">&times;</button>
             <h2 class="api-title">AI WYRM - Yapay Zeka API</h2>
-
+            
             <div class="api-section">
                 <h3>AI API Endpoint</h3>
                 <p class="api-description">AI WYRM, gelişmiş yapay zeka teknolojisi ile güçlendirilmiş API hizmeti sunar.</p>
-                <div class="api-code">https://api.wyrm.com/squaerdssoft/v1/chat/completions</div>
+                <div class="api-code">https://api.wrm.com/console/v1/chat/completions</div>
             </div>
 
             <div class="api-section">
                 <h3>Yapay Zeka API Kullanımı</h3>
                 <p class="api-description">AI WYRM API'sini kullanarak yapay zeka destekli uygulamalar geliştirebilirsiniz:</p>
-                <div class="api-code">curl https://api.wyrm.com/console/v1/chat/completions -s \ -H "Content-Type: application/json" \ -H "Authorization: Bearer /(partnerlik satın alın)" \ -d '{ "model": "squaerdssofta/wyrm-1-scout-19b-5e-instruct", "messages": [{ "role":
-                    "user", "content": "Explain the importance of fast language models" }] }'
-                </div>
+                <div class="api-code">curl https://api.wrm.com/console/v1/chat/completions -s \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer GİZLİ" \
+-d '{
+"model": "squaerdssoft/wyrm-1-scout-17b-16e-instruct",
+"messages": [{
+    "role": "user",
+    "content": "Explain the importance of fast language models"
+}]
+}'</div>
             </div>
 
             <div class="api-section">
                 <h3>AI Model Özellikleri</h3>
-                <p class="api-description">• Gelişmiş Dil Modeli: squaerdssofta/wyrm-1-scout-19b-5e-instruct<br> • Hızlı AI Yanıt Süresi<br> • Türkçe Yapay Zeka Desteği<br> • SquaerdsSOFT AI Teknolojisi<br> • Akıllı Sohbet Sistemi<br> • Doğal Dil İşleme</p>
+                <p class="api-description">• Gelişmiş Dil Modeli: meta-llama/llama-4-scout-17b-16e-instruct<br>
+                • Hızlı AI Yanıt Süresi<br>
+                • Türkçe Yapay Zeka Desteği<br>
+                • SquaerdsSOFT AI Teknolojisi<br>
+                • Akıllı Sohbet Sistemi<br>
+                • Doğal Dil İşleme</p>
             </div>
 
             <div class="api-section">
                 <h3>AI API Parametreleri</h3>
-                <div class="api-code">{ "model": "squaerdssofta/wyrm-1-scout-19b-5e-instruct", "messages": [ { "role": "system", "content": "Sen AI WYRM yapay zeka asistanısın..." }, { "role": "user", "content": "Yapay zeka ile ilgili soru" } ], "temperature": 0.7, "stream":
-                    false }
-                </div>
+                <div class="api-code">{
+  "model": "squaerdssoft/wyrm-1-scout-17b-16e-instruct",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Sen AI WYRM yapay zeka asistanısın..."
+    },
+    {
+      "role": "user", 
+      "content": "Yapay zeka ile ilgili soru"
+    }
+  ],
+  "temperature": 0.7,
+  "stream": false
+}</div>
             </div>
 
             <div class="api-section">
                 <h3>AI Kullanım Alanları</h3>
-                <p class="api-description">• kodlama ve aı destek<br> • Doğal Dil İşleme Uygulamaları<br> • İçerik Üretimi ve Analizi<br> • Eğitim ve Öğrenme Sistemleri<br> • Müşteri Hizmetleri Otomasyonu</p>
+                <p class="api-description">• Chatbot ve Sanal Asistan Geliştirme<br>
+                • Doğal Dil İşleme Uygulamaları<br>
+                • İçerik Üretimi ve Analizi<br>
+                • Eğitim ve Öğrenme Sistemleri<br>
+                • Müşteri Hizmetleri Otomasyonu</p>
             </div>
         </div>
     </div>
@@ -918,7 +975,7 @@
             </div>
             <div class="chat-try-wyrm" onclick="startChatFromButton()">Try WYRM</div>
         </div>
-
+        
         <div class="chat-messages" id="chatMessages">
 
         </div>
@@ -945,6 +1002,10 @@
         const chatSendButton = document.getElementById('chatSendButton');
         const topBar = document.getElementById('topBar');
 
+        // Conversation memory system
+        let conversationHistory = [];
+        let messageCounter = 0;
+
         // Main input box functionality
         xaiInput.addEventListener('focus', function() {
             this.parentElement.style.transform = 'scale(1.02)';
@@ -961,7 +1022,7 @@
 
             // Switch to fullscreen chat mode
             openChat();
-
+            
             // Transfer message to fullscreen chat
             if (message) {
                 addMessage(message, 'user');
@@ -982,12 +1043,14 @@
         function openChat() {
             fullscreenChat.classList.add('active');
             document.querySelector('.xai-input-container').classList.add('chat-active');
+            document.body.classList.add('chat-active');
             chatInput.focus();
         }
 
         function closeChat() {
             fullscreenChat.classList.remove('active');
             document.querySelector('.xai-input-container').classList.remove('chat-active');
+            document.body.classList.remove('chat-active');
         }
 
         // Home function
@@ -1005,15 +1068,77 @@
 
 
 
+        // Store message in conversation history
+        function storeMessage(content, type) {
+            messageCounter++;
+            const timestamp = new Date().toISOString();
+            
+            conversationHistory.push({
+                id: messageCounter,
+                type: type,
+                content: content,
+                timestamp: timestamp,
+                category: categorizeMessage(content, type)
+            });
+        }
+
+        // Categorize messages for better memory
+        function categorizeMessage(content, type) {
+            if (type === 'user') {
+                const lowerContent = content.toLowerCase();
+                
+                // Question categories
+                if (lowerContent.includes('nedir') || lowerContent.includes('ne demek') || lowerContent.includes('nasıl')) {
+                    return 'soru';
+                }
+                if (lowerContent.includes('kim') || lowerContent.includes('hangi') || lowerContent.includes('ne zaman')) {
+                    return 'bilgi_talebi';
+                }
+                if (lowerContent.includes('yardım') || lowerContent.includes('help')) {
+                    return 'yardim_talebi';
+                }
+                if (lowerContent.includes('önceki') || lowerContent.includes('daha önce') || lowerContent.includes('geçen')) {
+                    return 'gecmis_referans';
+                }
+                if (lowerContent.includes('merhaba') || lowerContent.includes('selam') || lowerContent.includes('hello')) {
+                    return 'selamlasma';
+                }
+                
+                return 'genel';
+            } else {
+                return 'ai_cevap';
+            }
+        }
+
+        // Get conversation context for AI
+        function getConversationContext() {
+            return "";
+        }
+
         // Add message function
         function addMessage(content, type) {
+            // Store message in history
+            storeMessage(content, type);
+            
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${type}`;
-
+            
+            // Format the content for better readability
+            let formattedContent = content;
+            if (type === 'ai') {
+                // Add proper line breaks and formatting for AI messages
+                formattedContent = content
+                    .replace(/\n\n/g, '<br><br>')
+                    .replace(/\n/g, '<br>')
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                    .replace(/`(.*?)`/g, '<code style="background: rgba(255,255,255,0.2); padding: 2px 4px; border-radius: 4px; font-family: monospace;">$1</code>');
+            }
+            
             messageDiv.innerHTML = `
-                <div class="message-content">${content}</div>
+                <div class="message-content">${formattedContent}</div>
             `;
-
+            
             chatMessages.appendChild(messageDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
@@ -1029,7 +1154,7 @@
                     <div class="typing-dot"></div>
                 </div>
             `;
-
+            
             chatMessages.appendChild(typingDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
             return typingDiv;
@@ -1041,15 +1166,120 @@
             }
         }
 
-        // Grok API call with Turkish responses and SquaerdsSOFT branding
+        // Rate limiting variables
+        let messageCount = 0;
+        let lastResetTime = Date.now();
+        const MESSAGE_LIMIT = 25; // 25 messages per minute
+        const RESET_INTERVAL = 60000; // 1 minute in milliseconds
+
+        // Check if user is sending too many messages
+        function checkRateLimit() {
+            const now = Date.now();
+            
+            // Reset counter every minute
+            if (now - lastResetTime > RESET_INTERVAL) {
+                messageCount = 0;
+                lastResetTime = now;
+            }
+            
+            messageCount++;
+            
+            if (messageCount > MESSAGE_LIMIT) {
+                return false; // Rate limit exceeded
+            }
+            
+            return true; // OK to send
+        }
+
+        // Check if message seems random or unclear
+        function isRandomMessage(message) {
+            const trimmed = message.trim().toLowerCase();
+            
+            // Check for very short random characters
+            if (trimmed.length <= 3 && /^[a-z]+$/.test(trimmed)) return true;
+            
+            // Check for keyboard mashing patterns
+            const keyboardPatterns = [
+                /^[qwertyuiop]+$/i,
+                /^[asdfghjkl]+$/i,
+                /^[zxcvbnm]+$/i,
+                /^[123456789]+$/,
+                /^[!@#$%^&*()]+$/
+            ];
+            
+            if (keyboardPatterns.some(pattern => pattern.test(trimmed))) return true;
+            
+            // Check for repeated characters
+            if (/(.)\1{3,}/.test(trimmed)) return true;
+            
+            // Check for very short nonsensical input
+            if (trimmed.length <= 5 && !/\s/.test(trimmed) && !/[aeiouüöıiç]/.test(trimmed)) return true;
+            
+            return false;
+        }
+
+        // Generate friendly responses for unclear messages
+        function getFriendlyResponse(message) {
+            const responses = [
+                "Canınız sıkıldı galiba? 😊 Benimle sohbet etmek isterseniz, size nasıl yardımcı olabilirim?",
+                "Hmm, tam anlayamadım 🤔 Belki daha açık bir şekilde sorabilirsiniz? Ne hakkında konuşmak istiyorsunuz?",
+                "Rastgele tuşlara mı bastınız? 😄 Merak ettiğiniz bir şey varsa sormaktan çekinmeyin!",
+                "Sanırım bir şeyler yazmaya çalışıyorsunuz ama tam çözemedim 🤷‍♀️ Size nasıl yardımcı olabilirim?",
+                "Keyboardunuzla oynuyor musunuz? 😊 Benimle gerçek bir sohbet başlatmak isterseniz, herhangi bir konu hakkında soru sorabilirsiniz!",
+                "Bu biraz karışık geldi 😅 Belki şöyle başlayalım: Bugün nasılsınız? Neyle ilgili yardıma ihtiyacınız var?",
+                "Sanırım yanlışlıkla bir şeyler yazdınız 😊 Merak ettiğiniz bir konu var mı? Size yardımcı olmaktan mutluluk duyarım!",
+                "Hmm, bu mesajı çözmekte zorlanıyorum 🤔 Daha net bir soru sorarsanız size daha iyi yardımcı olabilirim!"
+            ];
+            
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        // Enhanced memory search function
+        function searchInHistory(query) {
+            const lowerQuery = query.toLowerCase();
+            const searchTerms = ['daha önce', 'önceki', 'geçen', 'az önce', 'demin', 'söylemiştim', 'demiştim', 'yazmıştım'];
+            
+            if (searchTerms.some(term => lowerQuery.includes(term))) {
+                // Find the most recent user message that matches context
+                const userMessages = conversationHistory.filter(msg => msg.type === 'user').reverse();
+                
+                if (userMessages.length > 1) {
+                    // Return the previous user message (not the current one)
+                    return userMessages[1];
+                }
+            }
+            
+            return null;
+        }
+
+        // AI function - now works for all messages
         async function sendToAI(message) {
+
+            // Check rate limit first
+            if (!checkRateLimit()) {
+                addMessage("Çok fazla mesaj gönderdiniz. Lütfen bir dakika bekleyip tekrar deneyin.", 'ai');
+                return;
+            }
+
             const typingIndicator = showTypingIndicator();
             chatSendButton.disabled = true;
 
             try {
+                // Enhanced memory search for history questions
+                const previousMessage = searchInHistory(message);
+                let contextualMessage = message;
+                
+                if (previousMessage) {
+                    contextualMessage = `Kullanıcının şu anki sorusu: "${message}"\n\nKullanıcının daha önce söylediği (referans verdiği mesaj): "${previousMessage.content}"\n\nLütfen kullanıcının daha önce söylediği mesajı tam olarak hatırla ve ona göre cevap ver.`;
+                }
+
+                // Get conversation context
+                const conversationContext = getConversationContext();
+                const fullMessage = contextualMessage + conversationContext;
+
                 const API_KEY = "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";
                 const API_URL = "https://api.groq.com/openai/v1/chat/completions";
-                const MODEL = "llama-3.1-8b-instant";
+                const MODEL = "llama-3.3-70b-versatile";
 
                 const response = await fetch(API_URL, {
                     method: "POST",
@@ -1058,13 +1288,30 @@
                         "Authorization": `Bearer ${API_KEY}`
                     },
                     body: JSON.stringify({
-                        messages: [{
-                            "role": "system",
-                            "content": "Sen AI WYRM'sin. 'Sana kim yaptı?', 'Seni kim geliştirdi?' gibi sorular dışında kendini tanıtma. Bu tarz sorular sorulduğunda şu şekilde cevap ver: 'Ben AI WYRM, SquaerdsSOFT tarafından geliştirilen bir yapay zeka asistanıyım.' Meta tarafından geliştirilmedin. Yardımcı, bilgili ve dostane bir yapay zeka asistanısın. Cevaplarını Türkçe ver."
-                        }, {
-                            role: "user",
-                            content: message
-                        }],
+                        messages: [
+                            {
+                                role: "system",
+                                content: `Sen AI WYRM'sin. SquaerdsSOFT tarafından geliştirildin. ChatGPT gibi profesyonel bir yapay zeka asistanısın.
+
+DAVRANIŞ KURALLARI:
+- Profesyonel ve resmi bir dil kullan
+- Emoji kullanma, hiçbir zaman
+- Bilgilendirici ve yardımcı ol
+- Net ve açık cevaplar ver
+- kişinin konuştuğu dil neyse ona göre konuş 
+- Kendini sadece sorulduğunda tanıt: "Ben AI WYRM, SquaerdsSOFT tarafından geliştirilen bir yapay zeka asistanıyım"
+- Her mesajda kendini tanıtma, sadece kullanıcı sorduğunda
+
+HAFIZA KURALLARI:
+- Kullanıcı "daha önce ne demiştim?" veya benzeri sorduğunda, sadece onun tam mesajını yapıştır
+- "Önceki mesajımda" dediğinde, o mesajı bulup sadece o mesajı ver
+- Eski mesaja göre profesyonel cevap yazabilirsin`
+                            },
+                            {
+                                role: "user",
+                                content: fullMessage
+                            }
+                        ],
                         model: MODEL,
                         stream: false,
                         temperature: 0.7
@@ -1075,17 +1322,19 @@
 
                 if (response.ok) {
                     const data = await response.json();
-                    const grokReply = data.choices[0].message.content || "Üzgünüm, cevap oluşturamadım.";
+                    const grokReply = data.choices[0].message.content || "Sohbet geçmişinizi bulamadım";
                     addMessage(grokReply, 'ai');
+                } else if (response.status === 429) {
+                    addMessage("Çok fazla mesaj gönderdiniz. Lütfen bir dakika bekleyip tekrar deneyin.", 'ai');
                 } else {
                     const errorData = await response.json().catch(() => ({}));
                     console.error('API Error:', response.status, errorData);
-                    addMessage(`❌ API Hatası (${response.status}): ${errorData.error?.message || 'Bilinmeyen hata'}. API anahtarınızı ve kotanızı kontrol edin.`, 'ai');
+                    addMessage("Bir hata oluştu. Lütfen daha sonra tekrar deneyin.", 'ai');
                 }
             } catch (error) {
                 removeTypingIndicator(typingIndicator);
                 console.error('Network Error:', error);
-                addMessage("🌐 Bağlantı hatası: İnternet bağlantınızı kontrol edin veya daha sonra tekrar deneyin.", 'ai');
+                addMessage("Bağlantı hatası: İnternet bağlantınızı kontrol edin veya daha sonra tekrar deneyin.", 'ai');
             }
 
             chatSendButton.disabled = false;
@@ -1113,7 +1362,14 @@
         // Auto-resize textarea
         function autoResize(textarea) {
             textarea.style.height = 'auto';
-            textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
+            const newHeight = Math.min(textarea.scrollHeight, 200);
+            textarea.style.height = newHeight + 'px';
+            
+            // Adjust container height if needed
+            const container = textarea.closest('.chat-input-container') || textarea.closest('.xai-input-box');
+            if (container) {
+                container.style.minHeight = Math.max(60, newHeight + 40) + 'px';
+            }
         }
 
         chatInput.addEventListener('input', function() {
@@ -1139,13 +1395,13 @@
         // Mouse tracking effect for particles
         document.addEventListener('mousemove', function(e) {
             if (fullscreenChat.classList.contains('active')) return;
-
+            
             const particles = document.querySelectorAll('.particle');
             particles.forEach((particle, index) => {
                 const speed = (index + 1) * 0.01;
                 const x = e.clientX * speed;
                 const y = e.clientY * speed;
-
+                
                 setTimeout(() => {
                     particle.style.transform = `translate(${x}px, ${y}px)`;
                 }, index * 100);
@@ -1183,71 +1439,5 @@
             }, 3000);
         });
     </script>
-    <script>
-        (function() {
-            function c() {
-                var b = a.contentDocument || a.contentWindow.document;
-                if (b) {
-                    var d = b.createElement('script');
-                    d.innerHTML = "window.__CF$cv$params={r:'975caf6376cf50a6',t:'MTc1NjMwOTQxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
-                    b.getElementsByTagName('head')[0].appendChild(d)
-                }
-            }
-            if (document.body) {
-                var a = document.createElement('iframe');
-                a.height = 1;
-                a.width = 1;
-                a.style.position = 'absolute';
-                a.style.top = 0;
-                a.style.left = 0;
-                a.style.border = 'none';
-                a.style.visibility = 'hidden';
-                document.body.appendChild(a);
-                if ('loading' !== document.readyState) c();
-                else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c);
-                else {
-                    var e = document.onreadystatechange || function() {};
-                    document.onreadystatechange = function(b) {
-                        e(b);
-                        'loading' !== document.readyState && (document.onreadystatechange = e, c())
-                    }
-                }
-            }
-        })();
-    </script>
-    <script>
-        (function() {
-            function c() {
-                var b = a.contentDocument || a.contentWindow.document;
-                if (b) {
-                    var d = b.createElement('script');
-                    d.innerHTML = "window.__CF$cv$params={r:'97f02c18110658dd',t:'MTc1Nzg1NTkyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
-                    b.getElementsByTagName('head')[0].appendChild(d)
-                }
-            }
-            if (document.body) {
-                var a = document.createElement('iframe');
-                a.height = 1;
-                a.width = 1;
-                a.style.position = 'absolute';
-                a.style.top = 0;
-                a.style.left = 0;
-                a.style.border = 'none';
-                a.style.visibility = 'hidden';
-                document.body.appendChild(a);
-                if ('loading' !== document.readyState) c();
-                else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c);
-                else {
-                    var e = document.onreadystatechange || function() {};
-                    document.onreadystatechange = function(b) {
-                        e(b);
-                        'loading' !== document.readyState && (document.onreadystatechange = e, c())
-                    }
-                }
-            }
-        })();
-    </script>
-</body>
-
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'975caf6376cf50a6',t:'MTc1NjMwOTQxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97f9fbef05ee93a0',t:'MTc1Nzk1ODgxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
