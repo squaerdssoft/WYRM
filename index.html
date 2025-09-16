@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="wmrIAMKfoubCubfGjXQcbiZoRoYdXfvT9bDWRc1kvRs" />
-    <link rel="icon" type="image/png" href="Ekran görüntüsü 2025-08-29 142829.png">
-    <title>AI WYRM - Advanced AI Assistant</title>
+    <link rel="icon" type="image/png" href="Ekran görüntüsü 2025-08-29 142829.png
+">
+    <title>AI WYRM </title>
     <style>
         * {
             margin: 0;
@@ -190,48 +191,392 @@
             margin-right: auto;
         }
 
-        /* Features Section */
-        .features-section {
+        /* Animated Final Section */
+        .animated-final-section {
+            background: #000000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fullscreen-animation-container {
+            position: relative;
+            height: 70vh;
+            width: 100%;
+            overflow: hidden;
             background: transparent;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 20px;
-            padding: 40px 30px;
-            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 80px;
         }
 
-        .feature-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.15);
+        /* xAI Style Grid Pattern */
+        .xai-grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridPulse 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        /* xAI Floating Particles */
+        .xai-particles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .xai-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: xaiParticleFloat 12s linear infinite;
+        }
+
+        .xai-particle-1 { top: 10%; left: 15%; animation-delay: 0s; }
+        .xai-particle-2 { top: 25%; left: 85%; animation-delay: 1.5s; }
+        .xai-particle-3 { top: 60%; left: 10%; animation-delay: 3s; }
+        .xai-particle-4 { top: 80%; left: 70%; animation-delay: 4.5s; }
+        .xai-particle-5 { top: 40%; left: 90%; animation-delay: 6s; }
+        .xai-particle-6 { top: 15%; left: 50%; animation-delay: 7.5s; }
+        .xai-particle-7 { top: 75%; left: 30%; animation-delay: 9s; }
+        .xai-particle-8 { top: 35%; left: 65%; animation-delay: 10.5s; }
+
+        @keyframes xaiParticleFloat {
+            0% { 
+                transform: translateY(0px) scale(1);
+                opacity: 0;
+            }
+            10% { 
+                opacity: 1;
+            }
+            90% { 
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(-100px) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* xAI Central Logo Animation */
+        .xai-central-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+        }
+
+        .xai-logo-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: xaiRingRotate 20s linear infinite;
+        }
+
+        .xai-ring-1 {
+            width: 120px;
+            height: 120px;
             border-color: rgba(255, 255, 255, 0.3);
+            animation-duration: 15s;
         }
 
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+        .xai-ring-2 {
+            width: 160px;
+            height: 160px;
+            border-color: rgba(255, 255, 255, 0.2);
+            animation-duration: 25s;
+            animation-direction: reverse;
         }
 
-        .feature-title {
-            font-size: 1.5rem;
+        .xai-ring-3 {
+            width: 200px;
+            height: 200px;
+            border-color: rgba(255, 255, 255, 0.1);
+            animation-duration: 35s;
+        }
+
+        .xai-logo-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: xaiCorePulse 4s ease-in-out infinite;
+        }
+
+        .xai-logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes xaiRingRotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        @keyframes xaiCorePulse {
+            0%, 100% { 
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            }
+            50% { 
+                transform: translate(-50%, -50%) scale(1.1);
+                box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        /* xAI Connecting Lines */
+        .xai-connections {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .xai-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.6) 50%, 
+                transparent 100%);
+            animation: xaiLineFlow 8s ease-in-out infinite;
+        }
+
+        .xai-line-1 {
+            top: 20%;
+            left: 10%;
+            width: 200px;
+            transform: rotate(15deg);
+            animation-delay: 0s;
+        }
+
+        .xai-line-2 {
+            top: 70%;
+            right: 10%;
+            width: 150px;
+            transform: rotate(-25deg);
+            animation-delay: 1s;
+        }
+
+        .xai-line-3 {
+            top: 40%;
+            left: 5%;
+            width: 180px;
+            transform: rotate(45deg);
+            animation-delay: 2s;
+        }
+
+        .xai-line-4 {
+            bottom: 30%;
+            right: 15%;
+            width: 120px;
+            transform: rotate(-15deg);
+            animation-delay: 3s;
+        }
+
+        .xai-line-5 {
+            top: 15%;
+            right: 30%;
+            width: 160px;
+            transform: rotate(35deg);
+            animation-delay: 4s;
+        }
+
+        .xai-line-6 {
+            bottom: 20%;
+            left: 20%;
+            width: 140px;
+            transform: rotate(-35deg);
+            animation-delay: 5s;
+        }
+
+        @keyframes xaiLineFlow {
+            0%, 100% { 
+                opacity: 0;
+                transform: scaleX(0);
+            }
+            50% { 
+                opacity: 1;
+                transform: scaleX(1);
+            }
+        }
+
+        /* xAI Pulse Waves */
+        .xai-pulse-waves {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            pointer-events: none;
+        }
+
+        .xai-pulse-wave {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: xaiPulseExpand 6s ease-out infinite;
+        }
+
+        .xai-wave-1 {
+            animation-delay: 0s;
+        }
+
+        .xai-wave-2 {
+            animation-delay: 2s;
+        }
+
+        .xai-wave-3 {
+            animation-delay: 4s;
+        }
+
+        @keyframes xaiPulseExpand {
+            0% {
+                width: 0px;
+                height: 0px;
+                opacity: 1;
+            }
+            100% {
+                width: 400px;
+                height: 400px;
+                opacity: 0;
+            }
+        }
+
+        /* xAI Corner Elements */
+        .xai-corner-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .xai-corner {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            animation: xaiCornerGlow 5s ease-in-out infinite;
+        }
+
+        .xai-corner-tl {
+            top: 20px;
+            left: 20px;
+            border-right: none;
+            border-bottom: none;
+            animation-delay: 0s;
+        }
+
+        .xai-corner-tr {
+            top: 20px;
+            right: 20px;
+            border-left: none;
+            border-bottom: none;
+            animation-delay: 1.25s;
+        }
+
+        .xai-corner-bl {
+            bottom: 20px;
+            left: 20px;
+            border-right: none;
+            border-top: none;
+            animation-delay: 2.5s;
+        }
+
+        .xai-corner-br {
+            bottom: 20px;
+            right: 20px;
+            border-left: none;
+            border-top: none;
+            animation-delay: 3.75s;
+        }
+
+        @keyframes xaiCornerGlow {
+            0%, 100% { 
+                border-color: rgba(255, 255, 255, 0.2);
+                box-shadow: none;
+            }
+            50% { 
+                border-color: rgba(255, 255, 255, 0.8);
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        /* Footer Links */
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .footer-column {
+            text-align: left;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 15px;
+            color: white;
+            margin-bottom: 20px;
+            opacity: 0.9;
         }
 
-        .feature-description {
-            font-size: 1rem;
-            opacity: 0.8;
-            line-height: 1.6;
+        .footer-column a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+            padding: 5px 0;
+        }
+
+        .footer-column a:hover {
+            color: #667eea;
+            transform: translateX(5px);
         }
 
         /* About Section */
@@ -754,6 +1099,214 @@
             margin-bottom: 20px;
         }
 
+        /* xAI Style Features */
+        .xai-features-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .xai-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .xai-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .xai-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .xai-grid {
+            display: grid;
+            grid-template-columns: 1fr 2px 1fr 2px 1fr;
+            gap: 60px;
+            align-items: start;
+            margin-bottom: 100px;
+        }
+
+        .xai-column {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .xai-divider {
+            width: 2px;
+            height: 400px;
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.1) 10%, 
+                rgba(255, 255, 255, 0.3) 50%, 
+                rgba(255, 255, 255, 0.1) 90%, 
+                transparent 100%);
+            justify-self: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .xai-divider::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: rgba(102, 126, 234, 0.6);
+            animation: dividerPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes dividerPulse {
+            0%, 100% { transform: translateY(-20px); opacity: 0; }
+            50% { transform: translateY(200px); opacity: 1; }
+        }
+
+        .xai-feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px 25px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .xai-feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .xai-feature-item:hover::before {
+            left: 100%;
+        }
+
+        .xai-feature-item:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(102, 126, 234, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .xai-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .xai-feature-item h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .xai-feature-item p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* 3D Animation Container */
+        .xai-animation-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            overflow: hidden;
+            background: radial-gradient(circle at center, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Floating Orbs */
+        .floating-orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(102, 126, 234, 0.4));
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
+            animation: floatOrb 6s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 60px;
+            height: 60px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 40px;
+            height: 40px;
+            top: 60%;
+            left: 80%;
+            animation-delay: 1s;
+        }
+
+        .orb-3 {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 70%;
+            animation-delay: 2s;
+        }
+
+        .orb-4 {
+            width: 30px;
+            height: 30px;
+            top: 80%;
+            left: 20%;
+            animation-delay: 3s;
+        }
+
+        .orb-5 {
+            width: 50px;
+            height: 50px;
+            top: 40%;
+            left: 50%;
+            animation-delay: 4s;
+        }
+
+        @keyframes floatOrb {
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px) scale(1);
+                opacity: 0.7;
+            }
+            25% { 
+                transform: translateY(-30px) translateX(20px) scale(1.1);
+                opacity: 1;
+            }
+            50% { 
+                transform: translateY(-10px) translateX(-15px) scale(0.9);
+                opacity: 0.8;
+            }
+            75% { 
+                transform: translateY(-40px) translateX(10px) scale(1.05);
+                opacity: 0.9;
+            }
+        }
+
+
+
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             .logo, .chat-logo {
@@ -796,6 +1349,43 @@
 
             .features-grid {
                 grid-template-columns: 1fr;
+            }
+
+            /* Animated Final Section Mobile */
+            .fullscreen-animation-container {
+                height: 50vh;
+                margin-bottom: 40px;
+            }
+
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .footer-column {
+                text-align: center;
+            }
+
+            .footer-column a:hover {
+                transform: translateX(0);
+            }
+
+            .neural-network {
+                width: 250px;
+                height: 150px;
+            }
+
+            .floating-orb {
+                transform: scale(0.7);
+            }
+
+            .wave {
+                height: 60px;
+            }
+
+            .wave-container {
+                height: 60px;
             }
         }
 
@@ -848,33 +1438,89 @@
             </div>
         </section>
 
-<!-- Tam ekran görsel bölümü -->
-<section style="
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background-color: #000;
-">
-    <div style="width: 100%; height: 100%;">
-        <img 
-            src="WY2sayfa.png" 
-            alt="İkinci sayfa görseli" 
-            style="
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                display: block;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            " 
-            onerror="this.style.display='none';"
-        >
+        <!-- Animated Final Section -->
+        <section class="section animated-final-section">
+            <div class="section-content">
+                <!-- xAI Style Animation Container -->
+                <div class="fullscreen-animation-container">
+                    <!-- xAI Grid Pattern Background -->
+                    <div class="xai-grid-pattern"></div>
+                    
+                    <!-- xAI Floating Particles -->
+                    <div class="xai-particles-container">
+                        <div class="xai-particle xai-particle-1"></div>
+                        <div class="xai-particle xai-particle-2"></div>
+                        <div class="xai-particle xai-particle-3"></div>
+                        <div class="xai-particle xai-particle-4"></div>
+                        <div class="xai-particle xai-particle-5"></div>
+                        <div class="xai-particle xai-particle-6"></div>
+                        <div class="xai-particle xai-particle-7"></div>
+                        <div class="xai-particle xai-particle-8"></div>
+                    </div>
+                    
+                    <!-- xAI Central Logo Animation -->
+                    <div class="xai-central-logo">
+                        <div class="xai-logo-ring xai-ring-1"></div>
+                        <div class="xai-logo-ring xai-ring-2"></div>
+                        <div class="xai-logo-ring xai-ring-3"></div>
+                        <div class="xai-logo-core">
+                            <span class="xai-logo-text">AI</span>
+                        </div>
+                    </div>
+                    
+                    <!-- xAI Connecting Lines -->
+                    <div class="xai-connections">
+                        <div class="xai-line xai-line-1"></div>
+                        <div class="xai-line xai-line-2"></div>
+                        <div class="xai-line xai-line-3"></div>
+                        <div class="xai-line xai-line-4"></div>
+                        <div class="xai-line xai-line-5"></div>
+                        <div class="xai-line xai-line-6"></div>
+                    </div>
+                    
+                    <!-- xAI Pulse Waves -->
+                    <div class="xai-pulse-waves">
+                        <div class="xai-pulse-wave xai-wave-1"></div>
+                        <div class="xai-pulse-wave xai-wave-2"></div>
+                        <div class="xai-pulse-wave xai-wave-3"></div>
+                    </div>
+                    
+                    <!-- xAI Corner Elements -->
+                    <div class="xai-corner-elements">
+                        <div class="xai-corner xai-corner-tl"></div>
+                        <div class="xai-corner xai-corner-tr"></div>
+                        <div class="xai-corner xai-corner-bl"></div>
+                        <div class="xai-corner xai-corner-br"></div>
+                    </div>
+                </div>
+                
+                <!-- Footer Links -->
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Ürün</h3>
+                        <a href="#">AI WYRM</a>
+                        <a href="#">API Dokümantasyonu</a>
+                        <a href="#">Özellikler</a>
+                        <a href="#">Fiyatlandırma</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Şirket</h3>
+                        <a href="#">Hakkımızda</a>
+                        <a href="#">Kariyer</a>
+                        <a href="#">Blog</a>
+                        <a href="#">İletişim</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Destek</h3>
+                        <a href="#">Yardım Merkezi</a>
+                        <a href="#">Topluluk</a>
+                        <a href="#">Durum Sayfası</a>
+                        <a href="#">Güvenlik</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-</section>
-
-
 
     <!-- Floating Particles -->
     <div class="particle"></div>
@@ -902,17 +1548,17 @@
             <div class="api-section">
                 <h3>AI API Endpoint</h3>
                 <p class="api-description">AI WYRM, gelişmiş yapay zeka teknolojisi ile güçlendirilmiş API hizmeti sunar.</p>
-                <div class="api-code">https://api.wrm.com/console/v1/chat/completions</div>
+                <div class="api-code">https://api.wyrm.com/console/v1/chat/completions</div>
             </div>
 
             <div class="api-section">
                 <h3>Yapay Zeka API Kullanımı</h3>
                 <p class="api-description">AI WYRM API'sini kullanarak yapay zeka destekli uygulamalar geliştirebilirsiniz:</p>
-                <div class="api-code">curl https://api.wrm.com/console/v1/chat/completions -s \
+                <div class="api-code">curl https://api.wyrm.com/console/v1/chat/completions -s \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer GİZLİ" \
 -d '{
-"model": "squaerdssoft/wyrm-1-scout-17b-16e-instruct",
+"model": "wyrm/wyrm-1-scout-17b-16e-instruct",
 "messages": [{
     "role": "user",
     "content": "Explain the importance of fast language models"
@@ -933,7 +1579,7 @@
             <div class="api-section">
                 <h3>AI API Parametreleri</h3>
                 <div class="api-code">{
-  "model": "squaerdssoft/wyrm-1-scout-17b-16e-instruct",
+  "model": "https://api.wyrm.com/console/v1/chat/completions",
   "messages": [
     {
       "role": "system",
@@ -1298,7 +1944,7 @@ DAVRANIŞ KURALLARI:
 - Emoji kullanma, hiçbir zaman
 - Bilgilendirici ve yardımcı ol
 - Net ve açık cevaplar ver
-- kişinin konuştuğu dil neyse ona göre konuş 
+- Türkçe cevap ver
 - Kendini sadece sorulduğunda tanıt: "Ben AI WYRM, SquaerdsSOFT tarafından geliştirilen bir yapay zeka asistanıyım"
 - Her mesajda kendini tanıtma, sadece kullanıcı sorduğunda
 
@@ -1392,7 +2038,7 @@ HAFIZA KURALLARI:
             });
         });
 
-        // Mouse tracking effect for particles
+        // Mouse tracking effect for particles and central rods
         document.addEventListener('mousemove', function(e) {
             if (fullscreenChat.classList.contains('active')) return;
             
@@ -1406,6 +2052,41 @@ HAFIZA KURALLARI:
                     particle.style.transform = `translate(${x}px, ${y}px)`;
                 }, index * 100);
             });
+
+            // xAI central logo mouse interaction
+            const xaiLogo = document.querySelector('.xai-central-logo');
+            if (xaiLogo) {
+                const rect = xaiLogo.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                const distance = Math.sqrt(Math.pow(e.clientX - centerX, 2) + Math.pow(e.clientY - centerY, 2));
+                
+                if (distance < 150) {
+                    // Speed up animations on hover
+                    const rings = xaiLogo.querySelectorAll('.xai-logo-ring');
+                    rings.forEach((ring, index) => {
+                        ring.style.animationDuration = `${5 + index * 2}s`;
+                    });
+                    
+                    const core = xaiLogo.querySelector('.xai-logo-core');
+                    if (core) {
+                        core.style.animationDuration = '1s';
+                    }
+                } else {
+                    // Reset to normal speed
+                    const rings = xaiLogo.querySelectorAll('.xai-logo-ring');
+                    rings.forEach((ring, index) => {
+                        if (index === 0) ring.style.animationDuration = '15s';
+                        if (index === 1) ring.style.animationDuration = '25s';
+                        if (index === 2) ring.style.animationDuration = '35s';
+                    });
+                    
+                    const core = xaiLogo.querySelector('.xai-logo-core');
+                    if (core) {
+                        core.style.animationDuration = '4s';
+                    }
+                }
+            }
         });
 
         // API Modal functions
@@ -1437,7 +2118,25 @@ HAFIZA KURALLARI:
                     loading.remove();
                 }
             }, 3000);
+
+            // Check if image loads, if not show fallback content
+            const img = document.querySelector('img[src="2.sayfa.png"]');
+            const fallbackContent = document.getElementById('fallbackContent');
+            
+            if (img && fallbackContent) {
+                img.onerror = function() {
+                    console.log('Görsel yüklenemedi, alternatif içerik gösteriliyor');
+                    this.style.display = 'none';
+                    fallbackContent.style.display = 'block';
+                };
+                
+                // Also check if image is already failed to load
+                if (img.complete && img.naturalHeight === 0) {
+                    img.style.display = 'none';
+                    fallbackContent.style.display = 'block';
+                }
+            }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'975caf6376cf50a6',t:'MTc1NjMwOTQxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97f9fbef05ee93a0',t:'MTc1Nzk1ODgxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'975caf6376cf50a6',t:'MTc1NjMwOTQxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9802317253603db5',t:'MTc1ODA0NDg5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
