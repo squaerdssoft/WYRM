@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,22 +19,22 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             overflow-x: hidden;
         }
-
+        
         html {
             scroll-behavior: smooth;
         }
-
+        
         .font-mono {
             font-family: 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", monospace;
         }
         
         .hero-bg-gradient {
-            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(26,26,26,0.5) 100%), url('WYRM_1.png');
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 100%, rgba(26, 26, 26, 0.5) 100%), url('WYRM.özel (1).webp');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
-
+        
         #fog-container {
             position: absolute;
             top: 0;
@@ -43,16 +44,16 @@
             overflow: hidden;
             pointer-events: none;
         }
-
+        
         .fog-layer {
             position: absolute;
-            background: radial-gradient(ellipse at center, rgba(170, 200, 255, 0.1) 0%, rgba(170, 200, 255, 0) 60%);
-            border-radius: 50%;
+            background: radial-gradient(ellipse at center, rgba(170, 200, 255, 0.1) 0%, rgba(170, 200, 255, 0) 0%);
+            border-radius: 0%;
             filter: blur(0px);
             will-change: transform;
             opacity: 0;
         }
-
+        
         #fog-1 {
             width: 120vw;
             height: 120vh;
@@ -60,7 +61,7 @@
             right: -40vw;
             animation: float 45s ease-in-out infinite, fadeIn 3s ease forwards;
         }
-
+        
         #fog-2 {
             width: 100vw;
             height: 100vh;
@@ -76,24 +77,40 @@
             right: 0vw;
             animation: float 25s ease-in-out infinite, fadeIn 3s 1s ease forwards;
         }
-
+        
         @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-20px, 20px) scale(1.05); }
-            100% { transform: translate(0, 0) scale(1); }
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(-20px, 20px) scale(1.05);
+            }
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
         }
         
         @keyframes float2 {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(30px, -15px) scale(1.08); }
-            100% { transform: translate(0, 0) scale(1); }
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(30px, -15px) scale(1.08);
+            }
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
         }
         
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
-
+        
         #wyrm-text {
             font-size: clamp(80px, 18vw, 240px);
             line-height: 1;
@@ -102,33 +119,34 @@
             color: white;
             text-shadow: 0 0 80px rgba(180, 210, 255, 0.2);
         }
-
+        
         .star-bg {
             height: 100%;
             background: #000;
             overflow: hidden;
         }
-
+        
         .btn-outline {
             border: 1px solid rgba(255, 255, 255, 0.25);
             background-color: transparent;
             color: #fff;
             transition: background-color 0.2s ease;
         }
+        
         .btn-outline:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
-
         /* Chat Modal Styles */
+        
         #chat-modal {
             backdrop-filter: blur(10px);
             background: rgba(0, 0, 0, 0.1);
         }
-
+        
         .chat-message {
             animation: slideIn 0.3s ease-out;
         }
-
+        
         @keyframes slideIn {
             from {
                 opacity: 0;
@@ -139,7 +157,7 @@
                 transform: translateY(0);
             }
         }
-
+        
         .typing-indicator {
             display: inline-block;
             width: 8px;
@@ -148,12 +166,19 @@
             background-color: #666;
             animation: typing 1.4s infinite ease-in-out;
         }
-
-        .typing-indicator:nth-child(1) { animation-delay: -0.32s; }
-        .typing-indicator:nth-child(2) { animation-delay: -0.16s; }
-
+        
+        .typing-indicator:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+        
+        .typing-indicator:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+        
         @keyframes typing {
-            0%, 80%, 100% {
+            0%,
+            80%,
+            100% {
                 transform: scale(0);
                 opacity: 0.5;
             }
@@ -162,7 +187,6 @@
                 opacity: 1;
             }
         }
-
     </style>
     <script>
         tailwind.config = {
@@ -185,6 +209,7 @@
         }
     </script>
 </head>
+
 <body class="bg-background text-primary antialiased">
 
     <!-- Header -->
@@ -294,7 +319,7 @@
                 </div>
 
                 <div class="w-full max-w-3xl pb-8">
-                     <form id="chat-form" class="relative w-full overflow-hidden rounded-3xl bg-gradient-to-tr from-primary/5 to-primary/20 p-px">
+                    <form id="chat-form" class="relative w-full overflow-hidden rounded-3xl bg-gradient-to-tr from-primary/5 to-primary/20 p-px">
                         <textarea id="chat-input" class="block resize-none py-5 pl-6 pr-16 h-28 w-full rounded-3xl border-none focus:outline-none focus:ring-2 focus:ring-zinc-500 bg-black/50 backdrop-blur-sm text-primary placeholder:text-primary/50" placeholder="What do you want to know?"></textarea>
                         <div class="absolute bottom-3 right-3 flex items-center">
                             <button type="submit" aria-label="Submit query" class="flex items-center justify-center size-10 rounded-full bg-primary text-background hover:bg-primary/80 transition-colors">
@@ -330,14 +355,14 @@
                         <h3 class="text-xl font-medium">API</h3>
                         <p class="text-secondary mt-4 group-hover:text-primary transition-colors">Supercharge your applications with WYRM's enhanced speed, precision, and multilingual capabilities.</p>
                         <div class="mt-12">
-                           <span class="font-mono text-sm uppercase tracking-widest text-secondary group-hover:text-primary">Build now &rarr;</span>
+                            <span class="font-mono text-sm uppercase tracking-widest text-secondary group-hover:text-primary">Build now &rarr;</span>
                         </div>
                     </a>
                     <a href="#" class="group relative block p-8 border-b lg:border-b-0 border-border hover:bg-zinc-900/50 transition-colors duration-300">
                         <h3 class="text-xl font-medium">Developer Docs</h3>
                         <p class="text-secondary mt-4 group-hover:text-primary transition-colors">Learn how to quickly install WYRM at the heart of your applications and explore guides covering common use cases.</p>
-                         <div class="mt-12">
-                           <span class="font-mono text-sm uppercase tracking-widest text-secondary group-hover:text-primary">Learn more &rarr;</span>
+                        <div class="mt-12">
+                            <span class="font-mono text-sm uppercase tracking-widest text-secondary group-hover:text-primary">Learn more &rarr;</span>
                         </div>
                     </a>
                 </div>
@@ -348,15 +373,15 @@
         <section class="relative h-[600px] lg:h-[800px] flex items-center justify-center overflow-hidden star-bg">
             <div class="relative z-10 w-full container mx-auto px-6 text-center">
                 <div class="flex justify-start">
-                     <h2 class="text-5xl md:text-8xl font-bold bg-gradient-to-l from-secondary to-primary bg-clip-text text-transparent">Understand</h2>
+                    <h2 class="text-5xl md:text-8xl font-bold bg-gradient-to-l from-secondary to-primary bg-clip-text text-transparent">Understand</h2>
                 </div>
                 <div class="flex justify-end mt-4">
-                     <h2 class="text-5xl md:text-8xl font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">The Universe</h2>
+                    <h2 class="text-5xl md:text-8xl font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">The Universe</h2>
                 </div>
             </div>
         </section>
 
-         <!-- SuperWYRM Section -->
+        <!-- SuperWYRM Section -->
         <section class="py-16 sm:py-32 bg-black relative">
             <div class="absolute inset-0 bg-gradient-to-b from-black via-zinc-900/60 to-black"></div>
             <div class="container mx-auto px-6 text-center relative z-10 flex flex-col items-center">
@@ -369,7 +394,7 @@
         <!-- Latest News -->
         <section class="py-16 sm:py-32 bg-black">
             <div class="container mx-auto px-6 space-y-16">
-                 <div class="flex justify-between items-center">
+                <div class="flex justify-between items-center">
                     <div>
                         <span class="font-mono text-sm text-tertiary">[ BLOG ]</span>
                         <h2 class="text-3xl md:text-5xl font-semibold mt-4">Latest news</h2>
@@ -389,7 +414,8 @@
                                 </div>
                             </div>
                             <div class="overflow-hidden rounded-lg">
-                                <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/32a37a8c-52c7-4006-bf2e-9f4f1faf57de-x-ai/assets/images/grok-4-fast-1.webp?" alt="WYRM 4 Fast" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/32a37a8c-52c7-4006-bf2e-9f4f1faf57de-x-ai/assets/images/grok-4-fast-1.webp?" alt="WYRM 4 Fast" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                    onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
                         </div>
                     </a>
@@ -405,7 +431,8 @@
                                 </div>
                             </div>
                             <div class="overflow-hidden rounded-lg">
-                                <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/32a37a8c-52c7-4006-bf2e-9f4f1faf57de-x-ai/assets/images/grok-code-fast-2.webp?" alt="WYRM Code Fast 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/32a37a8c-52c7-4006-bf2e-9f4f1faf57de-x-ai/assets/images/grok-code-fast-2.webp?" alt="WYRM Code Fast 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                    onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
                         </div>
                     </a>
@@ -421,7 +448,8 @@
                                 </div>
                             </div>
                             <div class="overflow-hidden rounded-lg">
-                                <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/32a37a8c-52c7-4006-bf2e-9f4f1faf57de-x-ai/assets/images/grok-4-3.webp?" alt="WYRM 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/32a37a8c-52c7-4006-bf2e-9f4f1faf57de-x-ai/assets/images/grok-4-3.webp?" alt="WYRM 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                    onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
                         </div>
                     </a>
@@ -430,10 +458,11 @@
         </section>
 
     </main>
-    
+
     <!-- Footer -->
     <footer class="relative pt-16 sm:pt-32 pb-16 bg-black text-secondary overflow-hidden">
-         <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/32a37a8c-52c7-4006-bf2e-9f4f1faf57de-x-ai/assets/images/footer-gradient-4.webp?" alt="footer gradient" class="absolute bottom-0 left-0 w-full h-auto object-cover pointer-events-none" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+        <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/32a37a8c-52c7-4006-bf2e-9f4f1faf57de-x-ai/assets/images/footer-gradient-4.webp?" alt="footer gradient" class="absolute bottom-0 left-0 w-full h-auto object-cover pointer-events-none"
+            onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
                 <div>
@@ -446,14 +475,14 @@
                     </ul>
                 </div>
                 <div>
-                     <h4 class="font-mono uppercase text-tertiary mb-4">Products</h4>
+                    <h4 class="font-mono uppercase text-tertiary mb-4">Products</h4>
                     <ul class="space-y-3">
                         <li><a href="#" class="hover:text-primary transition-colors">WYRM</a></li>
                         <li><a href="#" class="hover:text-primary transition-colors">API</a></li>
                     </ul>
                 </div>
-                 <div>
-                     <h4 class="font-mono uppercase text-tertiary mb-4">Company</h4>
+                <div>
+                    <h4 class="font-mono uppercase text-tertiary mb-4">Company</h4>
                     <ul class="space-y-3">
                         <li><a href="#" class="hover:text-primary transition-colors">Company</a></li>
                         <li><a href="#" class="hover:text-primary transition-colors">Careers</a></li>
@@ -462,7 +491,7 @@
                     </ul>
                 </div>
                 <div>
-                     <h4 class="font-mono uppercase text-tertiary mb-4">Resources</h4>
+                    <h4 class="font-mono uppercase text-tertiary mb-4">Resources</h4>
                     <ul class="space-y-3">
                         <li><a href="#" class="hover:text-primary transition-colors">Documentation</a></li>
                         <li><a href="#" class="hover:text-primary transition-colors">Privacy policy</a></li>
@@ -473,7 +502,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="mt-16 text-center text-xs text-tertiary">
                 <p>&copy; 2024 WYRM. All rights reserved.</p>
             </div>
@@ -511,11 +540,11 @@
                 messageCount = 0;
                 lastResetTime = now;
             }
-            
+
             if (messageCount >= MAX_MESSAGES_PER_MINUTE) {
                 return false;
             }
-            
+
             messageCount++;
             return true;
         }
@@ -524,7 +553,7 @@
         function searchInHistory(query) {
             const keywords = ['daha önce', 'önceki', 'geçen', 'az önce', 'demiştim', 'söylemiştim'];
             const hasHistoryKeyword = keywords.some(keyword => query.toLowerCase().includes(keyword));
-            
+
             if (hasHistoryKeyword && conversationHistory.length > 0) {
                 // Return the last user message
                 for (let i = conversationHistory.length - 1; i >= 0; i--) {
@@ -539,15 +568,15 @@
         // Get conversation context (last 6 messages)
         function getConversationContext() {
             if (conversationHistory.length === 0) return '';
-            
+
             const recentMessages = conversationHistory.slice(-6);
             let context = '\n\nSon konuşma:\n';
-            
+
             recentMessages.forEach(msg => {
                 const role = msg.role === 'user' ? 'Kullanıcı' : 'AI WYRM';
                 context += `${role}: ${msg.content}\n`;
             });
-            
+
             return context;
         }
 
@@ -565,7 +594,7 @@
                 // Enhanced memory search for history questions
                 const previousMessage = searchInHistory(message);
                 let contextualMessage = message;
-                
+
                 if (previousMessage) {
                     contextualMessage = `Kullanıcının şu anki sorusu: "${message}"\n\nKullanıcının daha önce söylediği (referans verdiği mesaj): "${previousMessage.content}"\n\nLütfen kullanıcının daha önce söylediği mesajı tam olarak hatırla ve ona göre cevap ver.`;
                 }
@@ -585,10 +614,9 @@
                         "Authorization": `Bearer ${API_KEY}`
                     },
                     body: JSON.stringify({
-                        messages: [
-                            {
-                                role: "system",
-                                content: `Sen AI WYRM'sin. SquaerdsSOFT tarafından geliştirildin. ChatGPT gibi prestijli ve profesyonel bir yapay zeka asistanısın.
+                        messages: [{
+                            role: "system",
+                            content: `Sen AI WYRM'sin. SquaerdsSOFT tarafından geliştirildin. ChatGPT gibi prestijli ve profesyonel bir yapay zeka asistanısın.
 
 DAVRANIŞ KURALLARI:
 - Çok zeki, analitik ve derinlemesine düşünen cevaplar ver
@@ -611,12 +639,10 @@ HAFIZA KURALLARI:
 - Kullanıcı "daha önce ne demiştim?" veya benzeri sorduğunda, sadece onun tam mesajını yapıştır
 - "Önceki mesajımda" dediğinde, o mesajı bulup sadece o mesajı ver
 - Eski mesaja göre profesyonel cevap yazabilirsin`
-                            },
-                            {
-                                role: "user",
-                                content: fullMessage
-                            }
-                        ],
+                        }, {
+                            role: "user",
+                            content: fullMessage
+                        }],
                         model: MODEL,
                         stream: false,
                         temperature: 0.7
@@ -628,11 +654,17 @@ HAFIZA KURALLARI:
                 if (response.ok) {
                     const data = await response.json();
                     const grokReply = data.choices[0].message.content || "Sohbet geçmişinizi bulamadım";
-                    
+
                     // Add to conversation history
-                    conversationHistory.push({ role: "user", content: message });
-                    conversationHistory.push({ role: "assistant", content: grokReply });
-                    
+                    conversationHistory.push({
+                        role: "user",
+                        content: message
+                    });
+                    conversationHistory.push({
+                        role: "assistant",
+                        content: grokReply
+                    });
+
                     addAIMessage(grokReply);
                 } else if (response.status === 429) {
                     addAIMessage("Çok fazla mesaj gönderdiniz. Lütfen bir dakika bekleyip tekrar deneyin.");
@@ -649,26 +681,26 @@ HAFIZA KURALLARI:
         }
 
         // Open chat modal when main form is submitted
-        chatForm.addEventListener('submit', async (e) => {
+        chatForm.addEventListener('submit', async(e) => {
             e.preventDefault();
             const message = chatInput.value.trim();
             if (message) {
                 chatModal.classList.remove('hidden');
                 addUserMessage(message);
                 chatInput.value = '';
-                
+
                 await sendToAI(message);
             }
         });
 
         // Handle modal chat form
-        chatFormModal.addEventListener('submit', async (e) => {
+        chatFormModal.addEventListener('submit', async(e) => {
             e.preventDefault();
             const message = chatInputModal.value.trim();
             if (message) {
                 addUserMessage(message);
                 chatInputModal.value = '';
-                
+
                 await sendToAI(message);
             }
         });
@@ -712,31 +744,31 @@ HAFIZA KURALLARI:
         function formatMessage(message) {
             // Escape HTML first
             const escaped = escapeHtml(message);
-            
+
             // Split into paragraphs and format each one
             const paragraphs = escaped.split('\n\n');
             let formatted = '';
-            
+
             paragraphs.forEach((paragraph, index) => {
                 if (paragraph.trim()) {
                     // Format numbered lists
                     let formattedParagraph = paragraph.replace(/^(\d+\.\s)/gm, '<strong>$1</strong>');
-                    
+
                     // Format bullet points
                     formattedParagraph = formattedParagraph.replace(/^(-\s)/gm, '• ');
-                    
+
                     // Format bold text
                     formattedParagraph = formattedParagraph.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                    
+
                     // Format math expressions
                     formattedParagraph = formattedParagraph.replace(/(\d+\s*[+\-×÷]\s*\d+\s*=\s*\d+)/g, '<code class="bg-blue-500/20 px-2 py-1 rounded">$1</code>');
-                    
+
                     // Add paragraph with proper spacing
                     if (index > 0) formatted += '<br><br>';
                     formatted += formattedParagraph;
                 }
             });
-            
+
             return formatted;
         }
 
@@ -800,12 +832,38 @@ HAFIZA KURALLARI:
         });
     </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9828c47e14720ed1',t:'MTc1ODQ0OTM3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    <script>
+        (function() {
+            function c() {
+                var b = a.contentDocument || a.contentWindow.document;
+                if (b) {
+                    var d = b.createElement('script');
+                    d.innerHTML = "window.__CF$cv$params={r:'9828c47e14720ed1',t:'MTc1ODQ0OTM3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+                    b.getElementsByTagName('head')[0].appendChild(d)
+                }
+            }
+            if (document.body) {
+                var a = document.createElement('iframe');
+                a.height = 1;
+                a.width = 1;
+                a.style.position = 'absolute';
+                a.style.top = 0;
+                a.style.left = 0;
+                a.style.border = 'none';
+                a.style.visibility = 'hidden';
+                document.body.appendChild(a);
+                if ('loading' !== document.readyState) c();
+                else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c);
+                else {
+                    var e = document.onreadystatechange || function() {};
+                    document.onreadystatechange = function(b) {
+                        e(b);
+                        'loading' !== document.readyState && (document.onreadystatechange = e, c())
+                    }
+                }
+            }
+        })();
+    </script>
+</body>
+
 </html>
-
-
-
-
-
-
-
