@@ -4,14 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WYRM | AI </title>
+    <title>WYRM | AI</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/x-icon" href="favicon.icon.JPG">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-
     <style>
         body {
             background-color: #000;
@@ -29,7 +27,7 @@
         }
         
         .hero-bg-gradient {
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 100%, rgba(26, 26, 26, 0.5) 100%), url('WYRM.özel (1).webp');
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 100%, rgba(26, 26, 26, 0.5) 100%), url('WYRM.özel.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -48,7 +46,7 @@
         .fog-layer {
             position: absolute;
             background: radial-gradient(ellipse at center, rgba(170, 200, 255, 0.1) 0%, rgba(170, 200, 255, 0) 0%);
-            border-radius: 0%;
+            border-radius: 50%;
             filter: blur(0px);
             will-change: transform;
             opacity: 0;
@@ -221,14 +219,14 @@
             </a>
             <div class="hidden lg:flex items-center gap-2">
                 <a href="#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">WYRM</a>
-                <a href="https://squaerdssoft.github.io/WYRM_DEPLOY/#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">API</a>
-                <a href="https://squaerdssoft.github.io/WYRM_DEPLOY/#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">COMPANY</a>
-                <a href="https://squaerdssoft.github.io/WYRM_DEPLOY/#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">COLOSSUS</a>
-                <a href="https://squaerdssoft.github.io/WYRM_DEPLOY/#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">CAREERS</a>
-                <a href="https://squaerdssoft.github.io/WYRM_DEPLOY/#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">NEWS</a>
+                <a href="#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">API</a>
+                <a href="#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">COMPANY</a>
+                <a href="#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">COLOSSUS</a>
+                <a href="#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">CAREERS</a>
+                <a href="#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">NEWS</a>
             </div>
             <div class="flex items-center gap-4">
-                <button onclick="document.getElementById('chat-modal').classList.remove('hidden')" class="hidden md:block btn-outline rounded-full px-6 py-2 text-sm font-mono uppercase tracking-widest">TRY WYRM</button>
+                <button onclick="document.getElementById('chat-modal').classList.remove('hidden')" class="hidden md:block btn-outline rounded-full px-6 py-2 text-sm font-mono uppercase tracking-widest">Sohbet</button>
                 <button id="menu-btn" class="lg:hidden z-50">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -244,12 +242,42 @@
     <div id="mobile-menu" class="hidden fixed inset-0 bg-black z-40 lg:hidden">
         <div class="flex flex-col items-center justify-center h-full gap-6 text-xl">
             <a href="#" class="hover:text-accent-blue transition-colors">WYRM</a>
-            <a href="https://squaerdssoft.github.io/WYRM_DEPLOY/#" class="hover:text-accent-blue transition-colors">API</a>
-            <a href="https://squaerdssoft.github.io/WYRM_DEPLOY/#" class="hover:text-accent-blue transition-colors">COMPANY</a>
-            <a href="https://squaerdssoft.github.io/WYRM_DEPLOY/#" class="hover:text-accent-blue transition-colors">COLOSSUS</a>
-            <a href="https://squaerdssoft.github.io/WYRM_DEPLOY/#" class="hover:text-accent-blue transition-colors">CAREERS</a>
-            <a href="https://squaerdssoft.github.io/WYRM_DEPLOY/#" class="hover:text-accent-blue transition-colors">NEWS</a>
-            <button onclick="document.getElementById('chat-modal').classList.remove('hidden'); document.getElementById('mobile-menu').classList.add('hidden')" class="mt-8 btn-outline rounded-full px-8 py-3 text-base font-mono uppercase tracking-widest">TRY WYRM</button>
+            <a href="#" class="hover:text-accent-blue transition-colors">API</a>
+            <a href="#" class="hover:text-accent-blue transition-colors">COMPANY</a>
+            <a href="#" class="hover:text-accent-blue transition-colors">COLOSSUS</a>
+            <a href="#" class="hover:text-accent-blue transition-colors">CAREERS</a>
+            <a href="#" class="hover:text-accent-blue transition-colors">NEWS</a>
+            <button onclick="document.getElementById('chat-modal').classList.remove('hidden'); document.getElementById('mobile-menu').classList.add('hidden')" class="mt-8 btn-outline rounded-full px-8 py-3 text-base font-mono uppercase tracking-widest">Sohbet</button>
+        </div>
+    </div>
+
+    <!-- Video Popup Modal -->
+    <div id="video-popup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
+        <div class="relative w-[80%] h-[80%] max-w-4xl max-h-[600px] bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+            <!-- Close Button -->
+            <button id="close-video" class="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-colors">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+
+            <!-- Video Container -->
+            <video id="popup-video" class="w-full h-full object-cover" autoplay muted loop playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%23111'/%3E%3Ctext x='400' y='300' text-anchor='middle' fill='%23666' font-size='24' font-family='Arial'%3EVideo Önizleme%3C/text%3E%3C/svg%3E">
+                <source src="" type="video/mp4" id="video-source">
+                <!-- Fallback content -->
+                <div class="w-full h-full flex items-center justify-center bg-gray-800">
+                    <div class="text-center text-white">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="5,3 19,12 5,21"></polygon>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Video Önizleme</h3>
+                        <p class="text-gray-400">Video dosyanızı buraya ekleyin</p>
+                    </div>
+                </div>
+            </video>
         </div>
     </div>
 
@@ -330,7 +358,7 @@
                 </div>
 
                 <div class="w-full max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 pb-8 text-sm">
-                    <p class="max-w-lg text-secondary text-center md:text-left">WYRM 1 is the most intelligent model in the world. Available now to SuperWYRM and Premium+ subscribers, as well as our API.</p>
+                    <p class="max-w-lg text-secondary text-center md:text-left">WYRM 4 is the most intelligent model in the world. Available now to SuperWYRM and Premium+ subscribers, as well as our API.</p>
                     <a href="#" class="btn-outline rounded-full px-6 py-2 font-mono uppercase tracking-widest text-xs shrink-0">Read announcement</a>
                 </div>
             </div>
@@ -346,7 +374,7 @@
                 <div class="grid lg:grid-cols-3 border-t border-border">
                     <a href="#" class="group relative block p-8 border-b lg:border-b-0 lg:border-r border-border hover:bg-zinc-900/50 transition-colors duration-300">
                         <h3 class="text-xl font-medium">WYRM</h3>
-                        <p class="text-secondary mt-4 group-hover:text-primary transition-colors">WYRM is your cosmic guide, now accessible on wyrm.com, iOS, and Android. Explore the universe with AI.</p>
+                        <p class="text-secondary mt-4 group-hover:text-primary transition-colors">WYRM is your cosmic guide, now accessible on grok.com, iOS, and Android. Explore the universe with AI.</p>
                         <div class="mt-12">
                             <span class="font-mono text-sm uppercase tracking-widest text-secondary group-hover:text-primary">Use now &rarr;</span>
                         </div>
@@ -406,7 +434,7 @@
                         <div class="grid md:grid-cols-2 gap-8 items-center">
                             <div>
                                 <p class="font-mono text-xs text-tertiary uppercase">September 19, 2025</p>
-                                <h3 class="text-xl md:text-2xl font-medium mt-2">WYRM 1 Fast</h3>
+                                <h3 class="text-xl md:text-2xl font-medium mt-2">WYRM 4 Fast</h3>
                                 <p class="text-secondary mt-4">Pushing the Frontier of Cost-Efficient Intelligence</p>
                                 <div class="flex gap-4 items-center mt-6">
                                     <span class="text-tertiary font-mono text-xs uppercase">WYRM</span>
@@ -441,7 +469,7 @@
                             <div>
                                 <p class="font-mono text-xs text-tertiary uppercase">July 09, 2025</p>
                                 <h3 class="text-xl md:text-2xl font-medium mt-2">WYRM 4</h3>
-                                <p class="text-secondary mt-4">WYRM 4 is the most intelligent model in the world. It includes native tool use and real-time search integration, and is available now to SuperWYRM and Premium+ subscribers, as well as through the wyrm API.</p>
+                                <p class="text-secondary mt-4">WYRM 4 is the most intelligent model in the world. It includes native tool use and real-time search integration, and is available now to SuperWYRM and Premium+ subscribers, as well as through the xAI API.</p>
                                 <div class="flex gap-4 items-center mt-6">
                                     <span class="text-tertiary font-mono text-xs uppercase">WYRM</span>
                                     <span class="font-mono text-sm uppercase tracking-widest text-secondary group-hover:text-primary">Read &rarr;</span>
@@ -504,7 +532,7 @@
             </div>
 
             <div class="mt-16 text-center text-xs text-tertiary">
-                <p>&copy; 2024 WYRM. All rights reserved.</p>
+                <p>&copy; 2024 xAI. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -518,7 +546,7 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Chat functionality with advanced 
+        // Chat functionality with advanced Groq API
         const chatForm = document.getElementById('chat-form');
         const chatInput = document.getElementById('chat-input');
         const chatModal = document.getElementById('chat-modal');
@@ -760,6 +788,9 @@ HAFIZA KURALLARI:
                     // Format bold text
                     formattedParagraph = formattedParagraph.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
+                    // Format links - make them blue and clickable
+                    formattedParagraph = formattedParagraph.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline">$1</a>');
+
                     // Format math expressions
                     formattedParagraph = formattedParagraph.replace(/(\d+\s*[+\-×÷]\s*\d+\s*=\s*\d+)/g, '<code class="bg-blue-500/20 px-2 py-1 rounded">$1</code>');
 
@@ -824,6 +855,39 @@ HAFIZA KURALLARI:
             }
         });
 
+        // Video Popup functionality
+        const videoPopup = document.getElementById('video-popup');
+        const closeVideoBtn = document.getElementById('close-video');
+        const popupVideo = document.getElementById('popup-video');
+        const videoSource = document.getElementById('video-source');
+
+        // Close video popup
+        closeVideoBtn.addEventListener('click', () => {
+            videoPopup.classList.add('hidden');
+            popupVideo.pause();
+        });
+
+        // Close popup when clicking outside video
+        videoPopup.addEventListener('click', (e) => {
+            if (e.target === videoPopup) {
+                videoPopup.classList.add('hidden');
+                popupVideo.pause();
+            }
+        });
+
+        // Function to load video (you can call this with your MP4 file)
+        function loadVideo(videoUrl) {
+            videoSource.src = videoUrl;
+            popupVideo.load();
+            videoPopup.classList.remove('hidden');
+            popupVideo.play();
+        }
+
+        // Load video on page load
+        window.addEventListener('load', () => {
+            loadVideo('wyrmtanıtım.mp4');
+        });
+
         // Test API connection on page load
         window.addEventListener('load', function() {
             console.log("🔧 Testing API connection...");
@@ -838,7 +902,7 @@ HAFIZA KURALLARI:
                 var b = a.contentDocument || a.contentWindow.document;
                 if (b) {
                     var d = b.createElement('script');
-                    d.innerHTML = "window.__CF$cv$params={r:'9828c47e14720ed1',t:'MTc1ODQ0OTM3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+                    d.innerHTML = "window.__CF$cv$params={r:'98a78f27c2fd5b02',t:'MTc1OTc3ODg3OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
                     b.getElementsByTagName('head')[0].appendChild(d)
                 }
             }
