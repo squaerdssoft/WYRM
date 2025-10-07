@@ -5,11 +5,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WYRM | AI</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/x-icon" href="favicon.icon.JPG">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Google Fonts: Özel Yazı Tipleri -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=JetBrains+Mono&family=Open+Sans&display=swap" rel="stylesheet">
+
+    <!-- Custom Font Styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        .font-orbitron {
+            font-family: 'Orbitron', monospace;
+        }
+        
+        .font-rajdhani {
+            font-family: 'Rajdhani', sans-serif;
+        }
+        
+        .font-exo {
+            font-family: 'Exo 2', sans-serif;
+        }
+        
+        .font-space {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        /* Yazı Tiplerini Uygulamak için CSS */
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+        }
+        
+        .monospace {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .roboto {
+            font-family: 'Roboto', sans-serif;
+        }
+        /* MathJax içeriği düzgün hizalansın */
+        
+        .math {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        
+        .math-expression {
+            font-family: 'JetBrains Mono', monospace;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        /* Üslü sayılar için ChatGPT tarzı stil */
+        
+        sup {
+            font-size: 0.75em;
+            vertical-align: super;
+            line-height: 0;
+            color: inherit;
+        }
+        
+        .ai-special-text {
+            font-family: 'Orbitron', monospace;
+            background: linear-gradient(45deg, #00d4ff, #0099cc, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+        
+        .ai-response-text {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+        
+        .ai-title-text {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .youtube-preview {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 12px;
+            margin: 8px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .youtube-preview:hover {
+            border-color: #ff0000;
+            box-shadow: 0 4px 20px rgba(255, 0, 0, 0.1);
+        }
+        
+        .youtube-title {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+        
+        .youtube-channel {
+            color: #aaa;
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+        
+        .youtube-link {
+            color: #ff0000 !important;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .youtube-link:hover {
+            color: #ff4444 !important;
+        }
+    </style>
     <style>
         body {
             background-color: #000;
@@ -27,7 +152,7 @@
         }
         
         .hero-bg-gradient {
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 100%, rgba(26, 26, 26, 0.5) 100%), url('WYRM.özel (1).webp');
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 100%, rgba(26, 26, 26, 0.5) 100%), url('SQSWYRM.webp');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -46,10 +171,10 @@
         .fog-layer {
             position: absolute;
             background: radial-gradient(ellipse at center, rgba(170, 200, 255, 0.1) 0%, rgba(170, 200, 255, 0) 0%);
-            border-radius: 50%;
+            border-radius: 0%;
             filter: blur(0px);
             will-change: transform;
-            opacity: 0;
+            opacity: 100;
         }
         
         #fog-1 {
@@ -206,6 +331,11 @@
             }
         }
     </script>
+
+    <!-- MathJax: Matematik Sembolleri İçin -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 </head>
 
 <body class="bg-background text-primary antialiased">
@@ -264,7 +394,7 @@
 
             <!-- Video Container -->
             <video id="popup-video" class="w-full h-full object-cover" autoplay muted loop playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%23111'/%3E%3Ctext x='400' y='300' text-anchor='middle' fill='%23666' font-size='24' font-family='Arial'%3EVideo Önizleme%3C/text%3E%3C/svg%3E">
-                <source src="wyrmtanıtım.mp4.mp4" type="video/mp4" id="wyrmtanıtım.mp4.mp4">
+                <source src="wyrmtanıtım.mp4.mp4" type="video/mp4" id="video-source">
                 <!-- Fallback content -->
                 <div class="w-full h-full flex items-center justify-center bg-gray-800">
                     <div class="text-center text-white">
@@ -313,7 +443,7 @@
             <div id="chat-messages" class="flex-1 overflow-y-auto p-6 space-y-4 max-w-4xl mx-auto w-full mt-16">
                 <div class="chat-message flex items-start gap-3 mb-4">
                     <div class="bg-white/10 rounded-2xl p-4 max-w-[70%]">
-                        <p class="text-white">Merhaba! Size nasıl yardımcı olabilirim?</p>
+                        <p class="text-white ai-response-text">Merhaba! Size nasıl yardımcı olabilirim?</p>
                     </div>
                 </div>
             </div>
@@ -358,7 +488,7 @@
                 </div>
 
                 <div class="w-full max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 pb-8 text-sm">
-                    <p class="max-w-lg text-secondary text-center md:text-left">WYRM 4 is the most intelligent model in the world. Available now to SuperWYRM and Premium+ subscribers, as well as our API.</p>
+                    <p class="max-w-lg text-secondary text-center md:text-left">WYRM 1 is the most intelligent model in the world. Available now to SuperWYRM and Premium+ subscribers, as well as our API.</p>
                     <a href="#" class="btn-outline rounded-full px-6 py-2 font-mono uppercase tracking-widest text-xs shrink-0">Read announcement</a>
                 </div>
             </div>
@@ -374,7 +504,7 @@
                 <div class="grid lg:grid-cols-3 border-t border-border">
                     <a href="#" class="group relative block p-8 border-b lg:border-b-0 lg:border-r border-border hover:bg-zinc-900/50 transition-colors duration-300">
                         <h3 class="text-xl font-medium">WYRM</h3>
-                        <p class="text-secondary mt-4 group-hover:text-primary transition-colors">WYRM is your cosmic guide, now accessible on WYRM.com, iOS, and Android. Explore the universe with AI.</p>
+                        <p class="text-secondary mt-4 group-hover:text-primary transition-colors">WYRM is your cosmic guide, now accessible on wyrm.com, iOS, and Android. Explore the universe with AI.</p>
                         <div class="mt-12">
                             <span class="font-mono text-sm uppercase tracking-widest text-secondary group-hover:text-primary">Use now &rarr;</span>
                         </div>
@@ -433,7 +563,7 @@
                     <a href="#" class="group block border-t border-border pt-8">
                         <div class="grid md:grid-cols-2 gap-8 items-center">
                             <div>
-                                <p class="font-mono text-xs text-tertiary uppercase">September 19, 2025</p>
+                                <p class="font-mono text-xs text-tertiary uppercase">September 19, 2023</p>
                                 <h3 class="text-xl md:text-2xl font-medium mt-2">WYRM 1 Fast</h3>
                                 <p class="text-secondary mt-4">Pushing the Frontier of Cost-Efficient Intelligence</p>
                                 <div class="flex gap-4 items-center mt-6">
@@ -450,8 +580,8 @@
                     <a href="#" class="group block border-t border-border pt-8">
                         <div class="grid md:grid-cols-2 gap-8 items-center">
                             <div>
-                                <p class="font-mono text-xs text-tertiary uppercase">August 28, 2025</p>
-                                <h3 class="text-xl md:text-2xl font-medium mt-2">WYRM Code Fast 1</h3>
+                                <p class="font-mono text-xs text-tertiary uppercase">August 28, 2023</p>
+                                <h3 class="text-xl md:text-2xl font-medium mt-2">WYRM Code Fast 2</h3>
                                 <p class="text-secondary mt-4">We're thrilled to introduce wyrm-code-fast-1, a speedy and economical reasoning model that excels at agentic coding.</p>
                                 <div class="flex gap-4 items-center mt-6">
                                     <span class="text-tertiary font-mono text-xs uppercase">WYRM</span>
@@ -467,9 +597,9 @@
                     <a href="#" class="group block border-t border-border pt-8">
                         <div class="grid md:grid-cols-2 gap-8 items-center">
                             <div>
-                                <p class="font-mono text-xs text-tertiary uppercase">July 09, 2025</p>
+                                <p class="font-mono text-xs text-tertiary uppercase">July 09, 2023</p>
                                 <h3 class="text-xl md:text-2xl font-medium mt-2">WYRM 1</h3>
-                                <p class="text-secondary mt-4">WYRM 1 is the most intelligent model in the world. It includes native tool use and real-time search integration, and is available now to SuperWYRM and Premium+ subscribers, as well as through the WYRM API.</p>
+                                <p class="text-secondary mt-4">WYRM 1 is the most intelligent model in the world. It includes native tool use and real-time search integration, and is available now to SuperWYRM and Premium+ subscribers, as well as through the wyrm API.</p>
                                 <div class="flex gap-4 items-center mt-6">
                                     <span class="text-tertiary font-mono text-xs uppercase">WYRM</span>
                                     <span class="font-mono text-sm uppercase tracking-widest text-secondary group-hover:text-primary">Read &rarr;</span>
@@ -499,7 +629,7 @@
                         <li><a href="#" class="hover:text-primary transition-colors">Web</a></li>
                         <li><a href="#" class="hover:text-primary transition-colors">iOS</a></li>
                         <li><a href="#" class="hover:text-primary transition-colors">Android</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">WYRM on X</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">WYRM on Victus</a></li>
                     </ul>
                 </div>
                 <div>
@@ -532,7 +662,7 @@
             </div>
 
             <div class="mt-16 text-center text-xs text-tertiary">
-                <p>&copy; 2024 wyrm AI. All rights reserved.</p>
+                <p>&copy; 2024 wyrm. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -593,15 +723,15 @@
             return null;
         }
 
-        // Get conversation context (last 6 messages)
+        // Get conversation context (last 4 messages only for better freshness)
         function getConversationContext() {
             if (conversationHistory.length === 0) return '';
 
-            const recentMessages = conversationHistory.slice(-6);
-            let context = '\n\nSon konuşma:\n';
+            const recentMessages = conversationHistory.slice(-4);
+            let context = '\n\nSon konuşma (sadece referans için):\n';
 
             recentMessages.forEach(msg => {
-                const role = msg.role === 'user' ? 'Kullanıcı' : 'AI WYRM';
+                const role = msg.role === 'user' ? 'Kullanıcı' : 'AI';
                 context += `${role}: ${msg.content}\n`;
             });
 
@@ -656,8 +786,21 @@ DAVRANIŞ KURALLARI:
 - Kendini sadece sorulduğunda tanıt: "Ben AI WYRM, SquaerdsSOFT tarafından geliştirilen gelişmiş bir yapay zeka asistanıyım"
 - Her mesajda kendini tanıtma, sadece kullanıcı sorduğunda
 
-YAZIM KURALLARI:
+GÜNCEL BİLGİ KURALLARI:
+- Şu an 2025 yılındayız, bu bilgiyi kullan
+- 2023-2024 yıllarına göre değil, 2025'e göre cevap ver
+- Güncel teknolojiler ve gelişmeler hakkında konuş
+- Eski bilgileri güncelleyerek sun
+- "2023'te" veya "2024'te" deme, güncel bilgi ver
+
+MATEMATİK KURALLARI:
+- Üslü ifadeleri şu şekilde yaz: 2^3 = 8, x^2 + 5x + 6
 - Matematik işlemlerini adım adım açıkla
+- Formülleri düzgün formatla: a^2 + b^2 = c^2
+- Kök ifadeleri: √16 = 4, ∛27 = 3
+- Kesirler: 1/2, 3/4, 5/8
+
+YAZIM KURALLARI:
 - Karmaşık konuları basit parçalara böl
 - Madde madde yazarak anlaşılır hale getir
 - Örnekler vererek açıkla
@@ -673,7 +816,8 @@ HAFIZA KURALLARI:
                         }],
                         model: MODEL,
                         stream: false,
-                        temperature: 0.7
+                        temperature: 0.3,
+                        max_tokens: 2000
                     })
                 });
 
@@ -762,7 +906,7 @@ HAFIZA KURALLARI:
             messageDiv.className = 'chat-message flex items-start gap-3 mb-4';
             messageDiv.innerHTML = `
                 <div class="bg-white/10 rounded-2xl p-4 max-w-[70%]">
-                    <div class="text-white whitespace-pre-wrap">${formatMessage(message)}</div>
+                    <div class="text-white whitespace-pre-wrap ai-response-text">${formatMessage(message)}</div>
                 </div>
             `;
             chatMessages.appendChild(messageDiv);
@@ -788,11 +932,21 @@ HAFIZA KURALLARI:
                     // Format bold text
                     formattedParagraph = formattedParagraph.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
-                    // Format links - make them blue and clickable
-                    formattedParagraph = formattedParagraph.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline">$1</a>');
+                    // Format YouTube links with preview
+                    formattedParagraph = formattedParagraph.replace(/(https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+))/g, function(match, url, videoId) {
+                        return createYouTubePreview(url, videoId);
+                    });
 
-                    // Format math expressions
-                    formattedParagraph = formattedParagraph.replace(/(\d+\s*[+\-×÷]\s*\d+\s*=\s*\d+)/g, '<code class="bg-blue-500/20 px-2 py-1 rounded">$1</code>');
+                    // Format regular links - make them blue and clickable
+                    formattedParagraph = formattedParagraph.replace(/(https?:\/\/[^\s<]+)(?![^<]*<\/a>)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline">$1</a>');
+
+                    // Format math expressions and powers - ChatGPT style
+                    formattedParagraph = formattedParagraph.replace(/(\d+)\^(\d+)/g, '$1<sup>$2</sup>');
+                    formattedParagraph = formattedParagraph.replace(/([a-zA-Z])\^(\d+)/g, '$1<sup>$2</sup>');
+                    formattedParagraph = formattedParagraph.replace(/([a-zA-Z])\^([a-zA-Z])/g, '$1<sup>$2</sup>');
+                    formattedParagraph = formattedParagraph.replace(/(\d+\s*[+\-×÷]\s*\d+\s*=\s*\d+)/g, '<code class="bg-blue-500/20 px-2 py-1 rounded monospace">$1</code>');
+                    formattedParagraph = formattedParagraph.replace(/(√\d+)/g, '<span class="math-expression">$1</span>');
+                    formattedParagraph = formattedParagraph.replace(/(∛\d+)/g, '<span class="math-expression">$1</span>');
 
                     // Add paragraph with proper spacing
                     if (index > 0) formatted += '<br><br>';
@@ -801,6 +955,22 @@ HAFIZA KURALLARI:
             });
 
             return formatted;
+        }
+
+        function createYouTubePreview(url, videoId) {
+            // Extract video title from URL or use placeholder
+            const videoTitle = "YouTube Video";
+            const channelName = "YouTube Channel";
+
+            return `
+                <div class="youtube-preview">
+                    <div class="youtube-title">${videoTitle}</div>
+                    <div class="youtube-channel">Kanal: ${channelName}</div>
+                    <a href="${url}" target="_blank" rel="noopener noreferrer" class="youtube-link">
+                        🎥 YouTube'da İzle
+                    </a>
+                </div>
+            `;
         }
 
         function showTypingIndicator() {
@@ -902,7 +1072,7 @@ HAFIZA KURALLARI:
                 var b = a.contentDocument || a.contentWindow.document;
                 if (b) {
                     var d = b.createElement('script');
-                    d.innerHTML = "window.__CF$cv$params={r:'98a78f27c2fd5b02',t:'MTc1OTc3ODg3OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+                    d.innerHTML = "window.__CF$cv$params={r:'98aeba05c5a0deb0',t:'MTc1OTg1NDAzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
                     b.getElementsByTagName('head')[0].appendChild(d)
                 }
             }
