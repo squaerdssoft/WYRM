@@ -10,10 +10,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
     <!-- Google Fonts: Özel Yazı Tipleri -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=JetBrains+Mono&family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=JetBrains+Mono&family=Open+Sans&display=swap"
+        rel="stylesheet">
 
     <!-- Custom Font Styles -->
     <style>
@@ -21,42 +23,45 @@
         @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800;900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
         .font-orbitron {
             font-family: 'Orbitron', monospace;
         }
-        
+
         .font-rajdhani {
             font-family: 'Rajdhani', sans-serif;
         }
-        
+
         .font-exo {
             font-family: 'Exo 2', sans-serif;
         }
-        
+
         .font-space {
             font-family: 'Space Grotesk', sans-serif;
         }
+
         /* Yazı Tiplerini Uygulamak için CSS */
-        
+
         body {
             font-family: 'Open Sans', sans-serif;
             font-size: 16px;
         }
-        
+
         .monospace {
             font-family: 'JetBrains Mono', monospace;
         }
-        
+
         .roboto {
             font-family: 'Roboto', sans-serif;
         }
+
         /* MathJax içeriği düzgün hizalansın */
-        
+
         .math {
             font-size: 18px;
             margin: 10px 0;
         }
-        
+
         .math-expression {
             font-family: 'JetBrains Mono', monospace;
             background: linear-gradient(135deg, #4f46e5, #7c3aed);
@@ -66,15 +71,16 @@
             font-weight: 500;
             font-size: 14px;
         }
+
         /* Üslü sayılar için ChatGPT tarzı stil */
-        
+
         sup {
             font-size: 0.75em;
             vertical-align: super;
             line-height: 0;
             color: inherit;
         }
-        
+
         .ai-special-text {
             font-family: 'Orbitron', monospace;
             background: linear-gradient(45deg, #00d4ff, #0099cc, #0066ff);
@@ -84,19 +90,19 @@
             font-weight: 700;
             text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
-        
+
         .ai-response-text {
             font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
             font-size: 15px;
         }
-        
+
         .ai-title-text {
             font-family: 'Rajdhani', sans-serif;
             font-weight: 600;
             letter-spacing: 0.5px;
         }
-        
+
         .youtube-preview {
             background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
             border: 1px solid #333;
@@ -105,12 +111,12 @@
             margin: 8px 0;
             transition: all 0.3s ease;
         }
-        
+
         .youtube-preview:hover {
             border-color: #ff0000;
             box-shadow: 0 4px 20px rgba(255, 0, 0, 0.1);
         }
-        
+
         .youtube-title {
             color: #fff;
             font-size: 14px;
@@ -118,20 +124,20 @@
             margin-bottom: 4px;
             line-height: 1.3;
         }
-        
+
         .youtube-channel {
             color: #aaa;
             font-size: 12px;
             margin-bottom: 6px;
         }
-        
+
         .youtube-link {
             color: #ff0000 !important;
             text-decoration: none;
             font-size: 12px;
             font-weight: 500;
         }
-        
+
         .youtube-link:hover {
             color: #ff4444 !important;
         }
@@ -143,22 +149,22 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             overflow-x: hidden;
         }
-        
+
         html {
             scroll-behavior: smooth;
         }
-        
+
         .font-mono {
             font-family: 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", monospace;
         }
-        
+
         .hero-bg-gradient {
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 100%, rgba(26, 26, 26, 0.5) 100%), url('WYRM.özel (1).webp');
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 100%, rgba(26, 26, 26, 0.5) 100%), url('arkaplan.webp');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
-        
+
         #fog-container {
             position: absolute;
             top: 0;
@@ -168,7 +174,7 @@
             overflow: hidden;
             pointer-events: none;
         }
-        
+
         .fog-layer {
             position: absolute;
             background: radial-gradient(ellipse at center, rgba(170, 200, 255, 0.1) 0%, rgba(170, 200, 255, 0) 0%);
@@ -177,7 +183,7 @@
             will-change: transform;
             opacity: 100;
         }
-        
+
         #fog-1 {
             width: 120vw;
             height: 120vh;
@@ -185,7 +191,7 @@
             right: -40vw;
             animation: float 45s ease-in-out infinite, fadeIn 3s ease forwards;
         }
-        
+
         #fog-2 {
             width: 100vw;
             height: 100vh;
@@ -193,7 +199,7 @@
             right: -10vw;
             animation: float2 35s ease-in-out infinite reverse, fadeIn 3s 0.5s ease forwards;
         }
-        
+
         #fog-3 {
             width: 80vw;
             height: 80vh;
@@ -201,40 +207,45 @@
             right: 0vw;
             animation: float 25s ease-in-out infinite, fadeIn 3s 1s ease forwards;
         }
-        
+
         @keyframes float {
             0% {
                 transform: translate(0, 0) scale(1);
             }
+
             50% {
                 transform: translate(-20px, 20px) scale(1.05);
             }
+
             100% {
                 transform: translate(0, 0) scale(1);
             }
         }
-        
+
         @keyframes float2 {
             0% {
                 transform: translate(0, 0) scale(1);
             }
+
             50% {
                 transform: translate(30px, -15px) scale(1.08);
             }
+
             100% {
                 transform: translate(0, 0) scale(1);
             }
         }
-        
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
         }
-        
+
         #wyrm-text {
             font-size: clamp(80px, 18vw, 240px);
             line-height: 1;
@@ -243,45 +254,47 @@
             color: white;
             text-shadow: 0 0 80px rgba(180, 210, 255, 0.2);
         }
-        
+
         .star-bg {
             height: 100%;
             background: #000;
             overflow: hidden;
         }
-        
+
         .btn-outline {
             border: 1px solid rgba(255, 255, 255, 0.25);
             background-color: transparent;
             color: #fff;
             transition: background-color 0.2s ease;
         }
-        
+
         .btn-outline:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
+
         /* Chat Modal Styles */
-        
+
         #chat-modal {
             backdrop-filter: blur(10px);
             background: rgba(0, 0, 0, 0.1);
         }
-        
+
         .chat-message {
             animation: slideIn 0.3s ease-out;
         }
-        
+
         @keyframes slideIn {
             from {
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .typing-indicator {
             display: inline-block;
             width: 8px;
@@ -290,22 +303,24 @@
             background-color: #666;
             animation: typing 1.4s infinite ease-in-out;
         }
-        
+
         .typing-indicator:nth-child(1) {
             animation-delay: -0.32s;
         }
-        
+
         .typing-indicator:nth-child(2) {
             animation-delay: -0.16s;
         }
-        
+
         @keyframes typing {
+
             0%,
             80%,
             100% {
                 transform: scale(0);
                 opacity: 0.5;
             }
+
             40% {
                 transform: scale(1);
                 opacity: 1;
@@ -343,7 +358,8 @@
 
     <!-- Header -->
     <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/75 to-transparent pointer-events-none"></div>
+        <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/75 to-transparent pointer-events-none">
+        </div>
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center relative z-10">
             <a href="#" onclick="location.reload()" aria-label="AI WYRM Homepage" class="flex items-center gap-2">
                 <span class="font-bold text-lg text-white">AI WYRM</span>
@@ -351,15 +367,19 @@
             <div class="hidden lg:flex items-center gap-2">
                 <a href="#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">WYRM</a>
                 <a href="#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">API</a>
-                <a href="https://squaerdssoft.github.io/doxs/" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">COMPANY</a>
-                <a href="#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">COLOSSUS</a>
+                <a href="https://squaerdssoft.github.io/doxs/"
+                    class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">COMPANY</a>
+                <a href="#"
+                    class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">COLOSSUS</a>
                 <a href="#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">CAREERS</a>
                 <a href="#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">NEWS</a>
             </div>
             <div class="flex items-center gap-4">
-                <button onclick="document.getElementById('chat-modal').classList.remove('hidden')" class="hidden md:block btn-outline rounded-full px-6 py-2 text-sm font-mono uppercase tracking-widest">Sohbet</button>
+                <button onclick="document.getElementById('chat-modal').classList.remove('hidden')"
+                    class="hidden md:block btn-outline rounded-full px-6 py-2 text-sm font-mono uppercase tracking-widest">Sohbet</button>
                 <button id="menu-btn" class="lg:hidden z-50">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
                         <line x1="3" y1="12" x2="21" y2="12"></line>
                         <line x1="3" y1="6" x2="21" y2="6"></line>
                         <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -378,15 +398,19 @@
             <a href="#" class="hover:text-accent-blue transition-colors">COLOSSUS</a>
             <a href="#" class="hover:text-accent-blue transition-colors">CAREERS</a>
             <a href="#" class="hover:text-accent-blue transition-colors">NEWS</a>
-            <button onclick="document.getElementById('chat-modal').classList.remove('hidden'); document.getElementById('mobile-menu').classList.add('hidden')" class="mt-8 btn-outline rounded-full px-8 py-3 text-base font-mono uppercase tracking-widest">Sohbet</button>
+            <button
+                onclick="document.getElementById('chat-modal').classList.remove('hidden'); document.getElementById('mobile-menu').classList.add('hidden')"
+                class="mt-8 btn-outline rounded-full px-8 py-3 text-base font-mono uppercase tracking-widest">Sohbet</button>
         </div>
     </div>
 
     <!-- Video Popup Modal -->
     <div id="video-popup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
-        <div class="relative w-[80%] h-[80%] max-w-4xl max-h-[600px] bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+        <div
+            class="relative w-[80%] h-[80%] max-w-4xl max-h-[600px] bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl overflow-hidden shadow-2xl border border-white/10">
             <!-- Close Button -->
-            <button id="close-video" class="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-colors">
+            <button id="close-video"
+                class="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-colors">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -394,13 +418,15 @@
             </button>
 
             <!-- Video Container -->
-            <video id="victus.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%23111'/%3E%3Ctext x='400' y='300' text-anchor='middle' fill='%23666' font-size='24' font-family='Arial'%3EVideo Önizleme%3C/text%3E%3C/svg%3E">
+            <video id="victus.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline
+                poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%23111'/%3E%3Ctext x='400' y='300' text-anchor='middle' fill='%23666' font-size='24' font-family='Arial'%3EVideo Önizleme%3C/text%3E%3C/svg%3E">
                 <source src="victus.mp4" type="video/mp4" id="video-source">
                 <!-- Fallback content -->
                 <div class="w-full h-full flex items-center justify-center bg-gray-800">
                     <div class="text-center text-white">
                         <div class="w-20 h-20 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
                                 <polygon points="5,3 19,12 5,21"></polygon>
                             </svg>
                         </div>
@@ -416,23 +442,32 @@
     <div id="chat-modal" class="hidden fixed inset-0 z-50">
         <div class="w-full h-full bg-black/80 backdrop-blur-sm flex flex-col">
             <!-- Chat Navigation Bar -->
-            <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/75 to-transparent pointer-events-none"></div>
+            <div
+                class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/75 to-transparent pointer-events-none">
+            </div>
             <nav class="container mx-auto px-6 py-4 flex justify-between items-center relative z-10">
                 <a href="#" onclick="location.reload()" aria-label="AI WYRM Homepage" class="flex items-center gap-2">
                     <span class="font-bold text-lg text-white">AI WYRM</span>
                 </a>
                 <div class="hidden lg:flex items-center gap-2">
-                    <a href="#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">WYRM</a>
+                    <a href="#"
+                        class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">WYRM</a>
                     <a href="#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">API</a>
-                    <a href="#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">COMPANY</a>
-                    <a href="#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">COLOSSUS</a>
-                    <a href="#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">CAREERS</a>
-                    <a href="#" class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">NEWS</a>
+                    <a href="#"
+                        class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">COMPANY</a>
+                    <a href="#"
+                        class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">COLOSSUS</a>
+                    <a href="#"
+                        class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">CAREERS</a>
+                    <a href="#"
+                        class="px-3 py-1.5 text-sm text-primary/60 hover:text-primary transition-colors">NEWS</a>
                 </div>
                 <div class="flex items-center gap-4">
-                    <button onclick="document.getElementById('chat-modal').classList.remove('hidden')" class="hidden md:block btn-outline rounded-full px-6 py-2 text-sm font-mono uppercase tracking-widest">Sohbet</button>
+                    <button onclick="document.getElementById('chat-modal').classList.remove('hidden')"
+                        class="hidden md:block btn-outline rounded-full px-6 py-2 text-sm font-mono uppercase tracking-widest">Sohbet</button>
                     <button id="close-chat" class="p-2 hover:bg-white/10 rounded-lg transition-colors">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
                         </svg>
@@ -451,11 +486,20 @@
 
             <!-- Chat Input -->
             <div class="p-6 max-w-3xl mx-auto w-full">
-                <form id="chat-form-modal" class="relative w-full overflow-hidden rounded-3xl bg-gradient-to-tr from-primary/5 to-primary/20 p-px">
-                    <textarea id="chat-input-modal" class="block resize-none py-5 pl-6 pr-16 h-28 w-full rounded-3xl border-none focus:outline-none focus:ring-2 focus:ring-zinc-500 bg-black/50 backdrop-blur-sm text-primary placeholder:text-primary/50" placeholder="What do you want to know?"></textarea>
+                <form id="chat-form-modal"
+                    class="relative w-full overflow-hidden rounded-3xl bg-gradient-to-tr from-primary/5 to-primary/20 p-px">
+                    <textarea id="chat-input-modal"
+                        class="block resize-none py-5 pl-6 pr-16 h-28 w-full rounded-3xl border-none focus:outline-none focus:ring-2 focus:ring-zinc-500 bg-black/50 backdrop-blur-sm text-primary placeholder:text-primary/50"
+                        placeholder="What do you want to know?"></textarea>
                     <div class="absolute bottom-3 right-3 flex items-center">
-                        <button type="submit" aria-label="Submit query" class="flex items-center justify-center size-10 rounded-full bg-primary text-background hover:bg-primary/80 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+                        <button type="submit" aria-label="Submit query"
+                            class="flex items-center justify-center size-10 rounded-full bg-primary text-background hover:bg-primary/80 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M12 19V5" />
+                                <path d="m5 12 7-7 7 7" />
+                            </svg>
                         </button>
                     </div>
                 </form>
@@ -465,7 +509,8 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="relative h-screen w-full flex flex-col justify-center items-center text-center overflow-hidden hero-bg-gradient">
+        <section
+            class="relative h-screen w-full flex flex-col justify-center items-center text-center overflow-hidden hero-bg-gradient">
             <div id="fog-container">
                 <div class="fog-layer" id="fog-1"></div>
                 <div class="fog-layer" id="fog-2"></div>
@@ -478,19 +523,32 @@
                 </div>
 
                 <div class="w-full max-w-3xl pb-8">
-                    <form id="chat-form" class="relative w-full overflow-hidden rounded-3xl bg-gradient-to-tr from-primary/5 to-primary/20 p-px">
-                        <textarea id="chat-input" class="block resize-none py-5 pl-6 pr-16 h-28 w-full rounded-3xl border-none focus:outline-none focus:ring-2 focus:ring-zinc-500 bg-black/50 backdrop-blur-sm text-primary placeholder:text-primary/50" placeholder="What do you want to know?"></textarea>
+                    <form id="chat-form"
+                        class="relative w-full overflow-hidden rounded-3xl bg-gradient-to-tr from-primary/5 to-primary/20 p-px">
+                        <textarea id="chat-input"
+                            class="block resize-none py-5 pl-6 pr-16 h-28 w-full rounded-3xl border-none focus:outline-none focus:ring-2 focus:ring-zinc-500 bg-black/50 backdrop-blur-sm text-primary placeholder:text-primary/50"
+                            placeholder="What do you want to know?"></textarea>
                         <div class="absolute bottom-3 right-3 flex items-center">
-                            <button type="submit" aria-label="Submit query" class="flex items-center justify-center size-10 rounded-full bg-primary text-background hover:bg-primary/80 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+                            <button type="submit" aria-label="Submit query"
+                                class="flex items-center justify-center size-10 rounded-full bg-primary text-background hover:bg-primary/80 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M12 19V5" />
+                                    <path d="m5 12 7-7 7 7" />
+                                </svg>
                             </button>
                         </div>
                     </form>
                 </div>
 
-                <div class="w-full max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 pb-8 text-sm">
-                    <p class="max-w-lg text-secondary text-center md:text-left">WYRM 1 is the most intelligent model in the world. Available now to SuperWYRM and Premium+ subscribers, as well as our API.</p>
-                    <a href="#" class="btn-outline rounded-full px-6 py-2 font-mono uppercase tracking-widest text-xs shrink-0">Read announcement</a>
+                <div
+                    class="w-full max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 pb-8 text-sm">
+                    <p class="max-w-lg text-secondary text-center md:text-left">WYRM 1 is the most intelligent model in
+                        the world. Available now to SuperWYRM and Premium+ subscribers, as well as our API.</p>
+                    <a href="#"
+                        class="btn-outline rounded-full px-6 py-2 font-mono uppercase tracking-widest text-xs shrink-0">Read
+                        announcement</a>
                 </div>
             </div>
         </section>
@@ -503,25 +561,38 @@
                     <h2 class="text-3xl md:text-5xl font-semibold mt-4 max-w-xl">AI for all humanity</h2>
                 </div>
                 <div class="grid lg:grid-cols-3 border-t border-border">
-                    <a href="#" class="group relative block p-8 border-b lg:border-b-0 lg:border-r border-border hover:bg-zinc-900/50 transition-colors duration-300">
+                    <a href="#"
+                        class="group relative block p-8 border-b lg:border-b-0 lg:border-r border-border hover:bg-zinc-900/50 transition-colors duration-300">
                         <h3 class="text-xl font-medium">WYRM</h3>
-                        <p class="text-secondary mt-4 group-hover:text-primary transition-colors">WYRM is your cosmic guide, now accessible on wyrm.com, iOS, and Android. Explore the universe with AI.</p>
+                        <p class="text-secondary mt-4 group-hover:text-primary transition-colors">WYRM is your cosmic
+                            guide, now accessible on wyrm.com, iOS, and Android. Explore the universe with AI.</p>
                         <div class="mt-12">
-                            <span class="font-mono text-sm uppercase tracking-widest text-secondary group-hover:text-primary">Use now &rarr;</span>
+                            <span
+                                class="font-mono text-sm uppercase tracking-widest text-secondary group-hover:text-primary">Use
+                                now &rarr;</span>
                         </div>
                     </a>
-                    <a href="#" class="group relative block p-8 border-b lg:border-b-0 lg:border-r border-border hover:bg-zinc-900/50 transition-colors duration-300">
+                    <a href="#"
+                        class="group relative block p-8 border-b lg:border-b-0 lg:border-r border-border hover:bg-zinc-900/50 transition-colors duration-300">
                         <h3 class="text-xl font-medium">API</h3>
-                        <p class="text-secondary mt-4 group-hover:text-primary transition-colors">Supercharge your applications with WYRM's enhanced speed, precision, and multilingual capabilities.</p>
+                        <p class="text-secondary mt-4 group-hover:text-primary transition-colors">Supercharge your
+                            applications with WYRM's enhanced speed, precision, and multilingual capabilities.</p>
                         <div class="mt-12">
-                            <span class="font-mono text-sm uppercase tracking-widest text-secondary group-hover:text-primary">Build now &rarr;</span>
+                            <span
+                                class="font-mono text-sm uppercase tracking-widest text-secondary group-hover:text-primary">Build
+                                now &rarr;</span>
                         </div>
                     </a>
-                    <a href="#" class="group relative block p-8 border-b lg:border-b-0 border-border hover:bg-zinc-900/50 transition-colors duration-300">
+                    <a href="#"
+                        class="group relative block p-8 border-b lg:border-b-0 border-border hover:bg-zinc-900/50 transition-colors duration-300">
                         <h3 class="text-xl font-medium">Developer Docs</h3>
-                        <p class="text-secondary mt-4 group-hover:text-primary transition-colors">Learn how to quickly install WYRM at the heart of your applications and explore guides covering common use cases.</p>
+                        <p class="text-secondary mt-4 group-hover:text-primary transition-colors">Learn how to quickly
+                            install WYRM at the heart of your applications and explore guides covering common use cases.
+                        </p>
                         <div class="mt-12">
-                            <span class="font-mono text-sm uppercase tracking-widest text-secondary group-hover:text-primary">Learn more &rarr;</span>
+                            <span
+                                class="font-mono text-sm uppercase tracking-widest text-secondary group-hover:text-primary">Learn
+                                more &rarr;</span>
                         </div>
                     </a>
                 </div>
@@ -532,10 +603,14 @@
         <section class="relative h-[600px] lg:h-[800px] flex items-center justify-center overflow-hidden star-bg">
             <div class="relative z-10 w-full container mx-auto px-6 text-center">
                 <div class="flex justify-start">
-                    <h2 class="text-5xl md:text-8xl font-bold bg-gradient-to-l from-secondary to-primary bg-clip-text text-transparent">Understand</h2>
+                    <h2
+                        class="text-5xl md:text-8xl font-bold bg-gradient-to-l from-secondary to-primary bg-clip-text text-transparent">
+                        Understand</h2>
                 </div>
                 <div class="flex justify-end mt-4">
-                    <h2 class="text-5xl md:text-8xl font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">The Universe</h2>
+                    <h2
+                        class="text-5xl md:text-8xl font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
+                        The Universe</h2>
                 </div>
             </div>
         </section>
@@ -545,8 +620,11 @@
             <div class="absolute inset-0 bg-gradient-to-b from-black via-zinc-900/60 to-black"></div>
             <div class="container mx-auto px-6 text-center relative z-10 flex flex-col items-center">
                 <h3 class="text-4xl md:text-5xl font-bold">SuperWYRM</h3>
-                <p class="text-secondary mt-6 max-w-lg">Do more with WYRM. Unlock a SuperWYRM subscription on WYRM.com. We've just launched SuperWYRM Heavy, providing access to WYRM Heavy and much higher rate limits.</p>
-                <a href="#" class="mt-8 btn-outline rounded-full px-8 py-3 text-sm font-mono uppercase tracking-widest">Sign up now</a>
+                <p class="text-secondary mt-6 max-w-lg">Do more with WYRM. Unlock a SuperWYRM subscription on WYRM.com.
+                    We've just launched SuperWYRM Heavy, providing access to WYRM Heavy and much higher rate limits.</p>
+                <a href="#"
+                    class="mt-8 btn-outline rounded-full px-8 py-3 text-sm font-mono uppercase tracking-widest">Sign up
+                    now</a>
             </div>
         </section>
 
@@ -558,7 +636,9 @@
                         <span class="font-mono text-sm text-tertiary">[ BLOG ]</span>
                         <h2 class="text-3xl md:text-5xl font-semibold mt-4">Latest news</h2>
                     </div>
-                    <a href="#" class="hidden md:block btn-outline rounded-full px-6 py-2 text-sm font-mono uppercase tracking-widest">Explore more</a>
+                    <a href="#"
+                        class="hidden md:block btn-outline rounded-full px-6 py-2 text-sm font-mono uppercase tracking-widest">Explore
+                        more</a>
                 </div>
                 <div class="space-y-12">
                     <a href="#" class="group block border-t border-border pt-8">
@@ -569,11 +649,15 @@
                                 <p class="text-secondary mt-4">Pushing the Frontier of Cost-Efficient Intelligence</p>
                                 <div class="flex gap-4 items-center mt-6">
                                     <span class="text-tertiary font-mono text-xs uppercase">WYRM</span>
-                                    <span class="font-mono text-sm uppercase tracking-widest text-secondary group-hover:text-primary">Read &rarr;</span>
+                                    <span
+                                        class="font-mono text-sm uppercase tracking-widest text-secondary group-hover:text-primary">Read
+                                        &rarr;</span>
                                 </div>
                             </div>
                             <div class="overflow-hidden rounded-lg">
-                                <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/32a37a8c-52c7-4006-bf2e-9f4f1faf57de-x-ai/assets/images/grok-4-fast-1.webp?" alt="WYRM 4 Fast" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/32a37a8c-52c7-4006-bf2e-9f4f1faf57de-x-ai/assets/images/grok-4-fast-1.webp?"
+                                    alt="WYRM 4 Fast"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                     onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
                         </div>
@@ -583,14 +667,19 @@
                             <div>
                                 <p class="font-mono text-xs text-tertiary uppercase">August 28, 2023</p>
                                 <h3 class="text-xl md:text-2xl font-medium mt-2">WYRM Code Fast 2</h3>
-                                <p class="text-secondary mt-4">We're thrilled to introduce wyrm-code-fast-1, a speedy and economical reasoning model that excels at agentic coding.</p>
+                                <p class="text-secondary mt-4">We're thrilled to introduce wyrm-code-fast-1, a speedy
+                                    and economical reasoning model that excels at agentic coding.</p>
                                 <div class="flex gap-4 items-center mt-6">
                                     <span class="text-tertiary font-mono text-xs uppercase">WYRM</span>
-                                    <span class="font-mono text-sm uppercase tracking-widest text-secondary group-hover:text-primary">Read &rarr;</span>
+                                    <span
+                                        class="font-mono text-sm uppercase tracking-widest text-secondary group-hover:text-primary">Read
+                                        &rarr;</span>
                                 </div>
                             </div>
                             <div class="overflow-hidden rounded-lg">
-                                <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/32a37a8c-52c7-4006-bf2e-9f4f1faf57de-x-ai/assets/images/grok-code-fast-2.webp?" alt="WYRM Code Fast 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/32a37a8c-52c7-4006-bf2e-9f4f1faf57de-x-ai/assets/images/grok-code-fast-2.webp?"
+                                    alt="WYRM Code Fast 1"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                     onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
                         </div>
@@ -600,14 +689,20 @@
                             <div>
                                 <p class="font-mono text-xs text-tertiary uppercase">July 09, 2023</p>
                                 <h3 class="text-xl md:text-2xl font-medium mt-2">WYRM 1</h3>
-                                <p class="text-secondary mt-4">WYRM 1 is the most intelligent model in the world. It includes native tool use and real-time search integration, and is available now to SuperWYRM and Premium+ subscribers, as well as through the wyrm API.</p>
+                                <p class="text-secondary mt-4">WYRM 1 is the most intelligent model in the world. It
+                                    includes native tool use and real-time search integration, and is available now to
+                                    SuperWYRM and Premium+ subscribers, as well as through the wyrm API.</p>
                                 <div class="flex gap-4 items-center mt-6">
                                     <span class="text-tertiary font-mono text-xs uppercase">WYRM</span>
-                                    <span class="font-mono text-sm uppercase tracking-widest text-secondary group-hover:text-primary">Read &rarr;</span>
+                                    <span
+                                        class="font-mono text-sm uppercase tracking-widest text-secondary group-hover:text-primary">Read
+                                        &rarr;</span>
                                 </div>
                             </div>
                             <div class="overflow-hidden rounded-lg">
-                                <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/32a37a8c-52c7-4006-bf2e-9f4f1faf57de-x-ai/assets/images/grok-4-3.webp?" alt="WYRM 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/32a37a8c-52c7-4006-bf2e-9f4f1faf57de-x-ai/assets/images/grok-4-3.webp?"
+                                    alt="WYRM 4"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                     onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
                         </div>
@@ -620,7 +715,8 @@
 
     <!-- Footer -->
     <footer class="relative pt-16 sm:pt-32 pb-16 bg-black text-secondary overflow-hidden">
-        <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/32a37a8c-52c7-4006-bf2e-9f4f1faf57de-x-ai/assets/images/footer-gradient-4.webp?" alt="footer gradient" class="absolute bottom-0 left-0 w-full h-auto object-cover pointer-events-none"
+        <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/32a37a8c-52c7-4006-bf2e-9f4f1faf57de-x-ai/assets/images/footer-gradient-4.webp?"
+            alt="footer gradient" class="absolute bottom-0 left-0 w-full h-auto object-cover pointer-events-none"
             onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
@@ -937,7 +1033,7 @@
         }
 
         // Open chat modal when main form is submitted
-        chatForm.addEventListener('submit', async(e) => {
+        chatForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const message = chatInput.value.trim();
             if (message) {
@@ -950,7 +1046,7 @@
         });
 
         // Handle modal chat form
-        chatFormModal.addEventListener('submit', async(e) => {
+        chatFormModal.addEventListener('submit', async (e) => {
             e.preventDefault();
             const message = chatInputModal.value.trim();
             if (message) {
@@ -1017,7 +1113,7 @@
                     formattedParagraph = formattedParagraph.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
                     // Format YouTube links with preview
-                    formattedParagraph = formattedParagraph.replace(/(https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+))/g, function(match, url, videoId) {
+                    formattedParagraph = formattedParagraph.replace(/(https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+))/g, function (match, url, videoId) {
                         return createYouTubePreview(url, videoId);
                     });
 
@@ -1088,13 +1184,13 @@
         }
 
         // Auto-resize textarea
-        chatInputModal.addEventListener('input', function() {
+        chatInputModal.addEventListener('input', function () {
             this.style.height = 'auto';
             this.style.height = Math.min(this.scrollHeight, 120) + 'px';
         });
 
         // Handle Enter key for sending messages
-        chatInputModal.addEventListener('keydown', function(e) {
+        chatInputModal.addEventListener('keydown', function (e) {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
                 chatFormModal.dispatchEvent(new Event('submit'));
@@ -1102,7 +1198,7 @@
         });
 
         // Handle Enter key for main chat input
-        chatInput.addEventListener('keydown', function(e) {
+        chatInput.addEventListener('keydown', function (e) {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
                 chatForm.dispatchEvent(new Event('submit'));
@@ -1143,7 +1239,7 @@
         });
 
         // Test API connection on page load
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             console.log("🔧 Testing API connection...");
             // You can uncomment this to test API on page load
             // sendToGroqAPI("Test").then(response => console.log("API Test:", response));
@@ -1151,7 +1247,7 @@
     </script>
 
     <script>
-        (function() {
+        (function () {
             function c() {
                 var b = a.contentDocument || a.contentWindow.document;
                 if (b) {
@@ -1173,8 +1269,8 @@
                 if ('loading' !== document.readyState) c();
                 else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c);
                 else {
-                    var e = document.onreadystatechange || function() {};
-                    document.onreadystatechange = function(b) {
+                    var e = document.onreadystatechange || function () { };
+                    document.onreadystatechange = function (b) {
                         e(b);
                         'loading' !== document.readyState && (document.onreadystatechange = e, c())
                     }
